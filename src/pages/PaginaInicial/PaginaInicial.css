@@ -1,33 +1,33 @@
-#secao1 {
+#container_pagina_inicial_secao_apresentacao {
     background-color: white;
     font-family: var(--fonte-principal);
     display: flex;
     align-items: center;
 }
 
-.secao1_texto {
+.container_pagina_inicial_secao_apresentacao_texto {
     padding: 68px 0px 130px 40px;
     width: 70%;
     box-sizing: border-box;
 }
 
-.secao1_texto h1 {
+.container_pagina_inicial_secao_apresentacao_texto h1 {
     font-weight: bold;
     font-size: 40px;
     margin-bottom: 10px;
 }
 
-.secao1_texto p {
+.container_pagina_inicial_secao_apresentacao_texto p {
     font-size: 32px;
     font-weight: 400;
     margin-bottom: 10px;
 }
 
-.secao1_texto p span {
+.container_pagina_inicial_secao_apresentacao_texto p span {
     color: var(--azul-princial);
 }
 
-.secao1_imagem {
+.container_pagina_inicial_secao_apresentacao_imagem {
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -38,32 +38,32 @@
     width: 40vw;
 }
 
-#secao2 {
+#container_pagina_inicial_secao_funcionalidades {
     font-family: var(--fonte-principal);
     font-weight: bold;
     font-size: 25px;
     padding: 70px 40px
 }
 
-.secao2_icones {
+.container_pagina_inicial_secao_funcionalidades_cards {
     display: flex;
     justify-content: space-around;
     padding-top: 50px;
 }
 
-.funcionalidades_pagina_inicial {
+.container_pagina_inicial_secao_funcionalidades_cards div {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.funcionalidades_pagina_inicial img {
+.container_pagina_inicial_secao_funcionalidades_cards div img {
     width: 80px;
     height: auto;
     margin-bottom: 12px;
 }
 
-.funcionalidades_pagina_inicial a {
+.container_pagina_inicial_secao_funcionalidades_cards div a {
     background-color: var(--azul-princial);
     color: white;
     text-decoration: none;
@@ -76,7 +76,7 @@
     transition: transform 0.3s ease;
 }
 
-.funcionalidades_pagina_inicial a:hover {
+.container_pagina_inicial_secao_funcionalidades_cards div a:hover {
     transform: scale(1.1);
     background-color: #1c5fc1;
 }
