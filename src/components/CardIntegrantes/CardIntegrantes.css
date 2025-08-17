@@ -1,0 +1,27 @@
+.card_integrante {
+    width: 700px;
+    padding: 25px 0px 25px 25px;
+    gap: 40px;
+    display: flex;
+
+    border-radius: 5px;
+    background-color: var(--cinza-claro);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.card_integrante_imagem {
+    width: 10vw;
+}
+
+.card_integrante_conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: var(--fonte-principal);
+    font-size: 20px;
+}
+
+.card_integrante_conteudo a {
+    text-decoration: none;
+}

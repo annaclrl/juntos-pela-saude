@@ -1,0 +1,17 @@
+#container_integrantes {
+    padding: 60px 30px 30px 40px;
+}
+
+#container_integrantes h1 {
+    font-family: var(--fonte-principal);
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+

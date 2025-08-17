@@ -4,7 +4,7 @@ import './Rodape.css'
 const Rodape = () => {
     return (
         <footer>
-            <Link to={"./pages/integrantes"}>Integrantes</Link>
+            <Link to={"/integrantes"}>Integrantes</Link>
             <p>© 2025 Juntos pela Saúde. Todos os direitos reservados.</p>
         </footer>
     )

@@ -1,6 +1,6 @@
 import './Cabecalho.css'
 import LogoBranca from '../../assets/images/logo-completa-branca.png'
-import IconUsuario from '../../assets/icons/icone-usuario.png'
+import IconUsuario from '../../assets/icons/icon-usuario.png'
 import { Link } from 'react-router-dom'
 
 const Cabecalho = () => {
