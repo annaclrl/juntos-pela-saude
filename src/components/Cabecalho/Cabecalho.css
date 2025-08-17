@@ -1,0 +1,58 @@
+header {
+    background-color: var(--azul-princial);
+    font-family: var(--fonte-principal);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.imagem-logo {
+    width: 150px;
+    height: auto;
+}
+
+header nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+header nav ul {
+    display: flex;
+    gap: 40px;
+
+}
+
+header nav ul li {
+    list-style: none;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+header nav ul li a:hover {
+    transform: scale(1.1);
+}
+
+.active {
+    font-weight: bolder;
+}
+
+#btn_user {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.icone-usuario {
+    width: 70px;
+    height: auto;
+}
