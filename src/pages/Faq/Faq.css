@@ -1,0 +1,9 @@
+#conteudo_faq {
+    padding: 60px 40px;
+}
+
+#conteudo_faq h1 {
+    font-family: var(--fonte-principal);
+    font-size: 40px;
+    margin-bottom: 30px;
+}
