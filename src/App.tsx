@@ -1,15 +1,19 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import './App.css';
 import Cabecalho from "./components/Cabecalho";
 import Rodape from './components/Rodape';
 
 
 const App = () => {
+  const location = useLocation( );
+  const rotasSemLayout = ["/login", "/cadastro"]
+  const showHeaderFooter = !rotasSemLayout.includes(location.pathname.trim());
+  
   return(
     <>
-      <Cabecalho />
+      {showHeaderFooter && <Cabecalho />}
       <Outlet/>
-      <Rodape/>
+      {showHeaderFooter && <Rodape/>}
     </>
     
   )
