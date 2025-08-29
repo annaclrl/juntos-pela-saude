@@ -4,6 +4,8 @@ import IconUsuario from '../../assets/icons/icon-usuario.png'
 import { Link } from 'react-router-dom'
 
 const Cabecalho = () => {
+
+    
     return (
         <header>
             <img className="imagem-logo" src={LogoBranca} alt="Logo branca da Juntos pela Saúde" />
