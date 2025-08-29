@@ -1,0 +1,72 @@
+#container_pagina_dados_conta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 40px 0px 90px 0px;
+}
+
+.container_pagina_dados_conta_conteudo {
+    display: flex;
+    justify-content: center;
+}
+
+.container_pagina_dados_conta_conteudo_dados {
+    background-color: #ffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 45px;
+    gap: 20px;
+    padding: 30px 120px 200px 120px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.container_pagina_dados_conta_titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.container_pagina_dados_conta_titulo p {
+    color: #78909C;
+}
+
+.container_pagina_dados_conta_dados_usuario{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+.container_pagina_dados_conta_botoes{
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+
+}
+
+.container_pagina_dados_conta_botao_funcionalidades{
+    margin-top: 20px;
+}
+
+.container_pagina_dados_conta_botao_funcionalidades button {
+    width: 100px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--azul-princial);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--fonte-principal);
+}
