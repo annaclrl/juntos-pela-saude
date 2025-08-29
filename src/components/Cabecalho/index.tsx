@@ -1,11 +1,28 @@
 import './Cabecalho.css'
 import LogoBranca from '../../assets/images/logo-completa-branca.png'
 import IconUsuario from '../../assets/icons/icon-usuario.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Cabecalho = () => {
 
-    
+  const navigate = useNavigate();
+
+  const getUsuarioLogado = () => {
+    const usuarioLogado = localStorage.getItem("usuarioLogado");
+    return usuarioLogado ? JSON.parse(usuarioLogado) : null;
+  };
+
+  const handleBtnUserClick = () => {
+    const usuarioLogado = getUsuarioLogado();
+
+    if (!usuarioLogado) {
+      alert("Ops! Parece que você ainda não está logado. Faça login para continuar.");
+      navigate("/login");
+      return;
+    }
+
+    navigate("/dados-conta");
+  };
     return (
         <header>
             <img className="imagem-logo" src={LogoBranca} alt="Logo branca da Juntos pela Saúde" />
@@ -19,7 +36,7 @@ const Cabecalho = () => {
                 </ul>
             </nav>
 
-            <button id="btn_user">
+            <button id="btn_user" onClick={handleBtnUserClick}>
                 <img className="icone-usuario" src={IconUsuario} alt="Icone do usuário" />
             </button>
 
@@ -27,4 +44,4 @@ const Cabecalho = () => {
     )
 }
 
-export default Cabecalho;
+export default Cabecalho
