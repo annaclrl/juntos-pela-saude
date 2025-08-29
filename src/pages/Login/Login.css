@@ -1,0 +1,83 @@
+#container_pagina_login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 40px 0px 30px 0px;
+}
+
+.container_pagina_login_form_wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+#container_pagina_login_form{
+    background-color: #ffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 45px;
+    gap: 20px;
+    padding: 30px 120px 200px 120px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+.container_pagina_login_titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.container_pagina_login_titulo p{
+    color: #78909C;
+}   
+
+.container_pagina_login_campo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+label{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.container_pagina_login_campo input{
+    width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background-color: #e6f3ff;
+    box-sizing: border-box;
+    margin-top: 5px;
+    resize: none;
+    border-radius: 3px;
+    font-family: var(--fonte-principal);
+}
+
+.container_pagina_login_botao{
+    margin-top: 20px;
+}
+
+.container_pagina_login_botao button{
+    width: 400px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--azul-princial);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--fonte-principal);
+}
+
+.container_pagina_login_link a{
+    color: var(--azul-princial);
+    text-decoration: none;
+}
