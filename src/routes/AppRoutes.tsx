@@ -3,6 +3,11 @@ import PaginaInicial from "../pages/PaginaInicial";
 import App from "../App";
 import Integrantes from "../pages/Integrantes";
 import Faq from "../pages/Faq";
+import Contato from "../pages/Contato";
+import Agenda from "../pages/Agenda";
+import Login from "../pages/Login";
+import Cadastro from "../pages/Cadastro";
+import DadosConta from "../pages/DadosConta";
 
 export const routes = createBrowserRouter([
   {
@@ -21,6 +26,26 @@ export const routes = createBrowserRouter([
         path: "/faq",
         element: <Faq />
       
+      },
+      {
+        path: "/contato",
+        element: <Contato />
+      },
+      {
+        path: '/agenda',
+        element: <Agenda />
+      },
+      {
+        path: '/login',
+        element: <Login />
+      },
+      {
+        path: '/cadastro',
+        element: <Cadastro />
+      },
+      {
+        path: '/dados-conta',
+        element: <DadosConta />
       }
     ]
   }
