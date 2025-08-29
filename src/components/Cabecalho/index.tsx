@@ -13,7 +13,7 @@ const Cabecalho = () => {
                     <li><Link to={"/"} className="active">Início</Link></li>
                     <li><Link to={"/agenda"}>Agenda</Link></li>
                     <li><Link to={"/faq"}>FAQ</Link></li>
-                    <li><Link to={"/sobre"}>Sobre</Link></li>
+                    <li><Link to={"/contato"}>Contato</Link></li>
                 </ul>
             </nav>
 

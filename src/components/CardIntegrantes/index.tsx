@@ -12,16 +12,7 @@ interface CardIntegrantesProps {
   github: string;
 }
 
-const CardIntegrantes: React.FC<CardIntegrantesProps> = ({
-  nome,
-  rm,
-  turma,
-  foto,
-  alt,
-  linkedin,
-  github,
-}) => {
-
+const CardIntegrantes = ({nome, rm, turma, foto, alt, linkedin, github}: CardIntegrantesProps) =>{
   return (
     <div className="card_integrante">
       <img className="card_integrante_imagem" src={foto} alt={alt} />
@@ -42,7 +33,9 @@ const CardIntegrantes: React.FC<CardIntegrantesProps> = ({
       </div>
     </div>
   );
-};
+}
+  
+
 
 
 export default CardIntegrantes;
