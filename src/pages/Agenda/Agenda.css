@@ -64,3 +64,8 @@
     height: 16px;
     object-fit: contain;
 }
+
+.container_pagina_agenda_mensagem{
+    padding: 20px;
+    font-weight: 700;
+}

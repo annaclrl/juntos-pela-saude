@@ -1,7 +1,8 @@
 // src/pages/Agenda.tsx
 import { useState, useEffect, type FormEvent } from "react";
 import CardConsulta, { type StatusConsulta } from "../../components/CardConsulta";
-import IconBusca from '../../assets/icons/icon-busca.png'
+import Modal from "../../components/ModalAcesso";
+import IconBusca from '../../assets/icons/icon-busca.png';
 import "./Agenda.css";
 
 type Consulta = {
@@ -10,61 +11,53 @@ type Consulta = {
   medico: string;
   dataHora: string;
   status: StatusConsulta;
-  link?: string;
+  usuarioEmail: string;
 };
 
 const Agenda = () => {
   const [consultas, setConsultas] = useState<Consulta[]>([]);
   const [filtroStatus, setFiltroStatus] = useState<StatusConsulta | "">("");
   const [busca, setBusca] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
-  // carregar consultas do localStorage
+  const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado") || "{}");
+  const emailUsuario = usuarioLogado?.email;
+
   useEffect(() => {
-    const stored = localStorage.getItem("consultas");
-    if (stored) {
-      setConsultas(JSON.parse(stored));
+    if (!emailUsuario) {
+      setShowModal(true);
     } else {
-      // se não tiver nada, cria dados de exemplo
-      const exemplo: Consulta[] = [
-        {
-          id: 1,
-          especialidade: "Fisioterapia",
-          medico: "Felipe",
-          dataHora: "10/04/2025 - 18h",
-          status: "Realizada",
-        },
-        {
-          id: 2,
-          especialidade: "Fisioterapia",
-          medico: "Gabriel",
-          dataHora: "15/05/2025 - 16h",
-          status: "Confirmada",
-          link: "#",
-        },
-      ];
-      setConsultas(exemplo);
-      localStorage.setItem("consultas", JSON.stringify(exemplo));
+      const stored = localStorage.getItem("consultas");
+      if (stored) {
+        const todasConsultas: Consulta[] = JSON.parse(stored);
+        setConsultas(todasConsultas.filter(c => c.usuarioEmail === emailUsuario));
+      }
     }
-  }, []);
+  }, [emailUsuario]);
 
-  // filtrar e buscar
   const consultasFiltradas = consultas.filter((consulta) => {
     const statusOk = filtroStatus ? consulta.status === filtroStatus : true;
     const buscaOk = consulta.medico.toLowerCase().includes(busca.toLowerCase());
     return statusOk && buscaOk;
   });
 
-  const handleBusca = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); 
-  };
+  const handleBusca = (e: FormEvent<HTMLFormElement>) => e.preventDefault();
 
   return (
     <main className="container_pagina_agenda">
+      <Modal
+        mostrar={showModal}
+        titulo="Atenção"
+        mensagem="Você precisa estar logado para acessar a agenda."
+        onClose={() => setShowModal(false)}
+        acaoOpcional={{ texto: "Ir para Login", onClick: () => window.location.href = "/login" }}
+      />
 
       <h1>Suas consultas</h1>
 
       <div className="container_pagina_agenda_filtro_busca">
-        <select id="container_pagina_agenda_filtro"
+        <select
+          id="container_pagina_agenda_filtro"
           value={filtroStatus}
           onChange={(e) => setFiltroStatus(e.target.value as StatusConsulta | "")}
         >
@@ -86,16 +79,20 @@ const Agenda = () => {
         </form>
       </div>
 
-      <div className="container_pagina_agenda_consultas">
-        {consultasFiltradas.map((consulta) => (
-          <CardConsulta
-            key={consulta.id}
-            especialidade={consulta.especialidade}
-            medico={consulta.medico}
-            dataHora={consulta.dataHora}
-            status={consulta.status}
-          />
-        ))}
+      <div className="container_pagina_agenda_consultas" style={{ opacity: showModal ? 0.3 : 1, pointerEvents: showModal ? "none" : "auto" }}>
+        {consultasFiltradas.length > 0 ? (
+          consultasFiltradas.map((consulta) => (
+            <CardConsulta
+              key={consulta.id}
+              especialidade={consulta.especialidade}
+              medico={consulta.medico}
+              dataHora={consulta.dataHora}
+              status={consulta.status}
+            />
+          ))
+        ) : (
+          <p className="container_pagina_agenda_mensagem">Nenhuma consulta realizada/agenda</p>
+        )}
       </div>
     </main>
   );
