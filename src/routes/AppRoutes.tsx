@@ -9,6 +9,7 @@ import Login from "../pages/Login";
 import Cadastro from "../pages/Cadastro";
 import DadosConta from "../pages/DadosConta";
 import EditarDados from "../pages/EditarDados";
+import AgendarConsulta from "../pages/AgendarConsulta";
 
 export const routes = createBrowserRouter([
   {
@@ -51,7 +52,10 @@ export const routes = createBrowserRouter([
       {
         path: '/editar-dados',
         element: <EditarDados />
-      },
+      },{
+        path: '/agendar-consulta',
+        element: <AgendarConsulta />
+      }
     ]
   }
 ]);

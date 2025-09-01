@@ -1,0 +1,99 @@
+#agendar_consulta_container {
+    padding: 60px 0px 60px 40px;
+}
+
+#agendar_consulta_container h1 {
+    font-family: var(--fonte-principal);
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+#agendar_consulta_container>p {
+    font-family: var(--fonte-principal);
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.agendar_consulta_form_campo {
+    margin-bottom: 20px;
+}
+
+.agendar_consulta_form_campo label {
+    display: block;
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.agendar_consulta_form_campo select,
+.agendar_consulta_form_campo input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--fonte-principal);
+    font-size: 14px;
+
+}
+
+.agendar_consulta_form_campo select:focus,
+.agendar_consulta_form_campoinput:focus {
+    border-color: var(--azul-princial);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+#agendar_consulta_botao {
+    background-color: var(--azul-princial);
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Sombra sutil para o botão */
+}
+
+#agendar_consulta_botao:hover {
+    transform: translateY(-2px);
+}
+
+#agendar_consulta_botao:active {
+    transform: translateY(0);
+}
+
+
+.agendar-consulta_informacoes{
+    width: 95%;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f0f8ff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.agendar-consulta_informacoes h2 {
+    font-family: var(--fonte-principal);
+    font-size: 24px;
+    color: var(--azul-princial);
+    margin-bottom: 10px;
+}
+
+.agendar-consulta_informacoes p {
+    font-family: var(--fonte-principal);
+    font-size: 15px;
+    color: #333;
+    margin: 5px 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--azul-princial);
+}

@@ -1,4 +1,3 @@
-// src/pages/Agenda.tsx
 import { useState, useEffect, type FormEvent } from "react";
 import CardConsulta, { type StatusConsulta } from "../../components/CardConsulta";
 import Modal from "../../components/ModalAcesso";
