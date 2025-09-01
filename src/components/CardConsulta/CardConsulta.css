@@ -44,3 +44,21 @@
     text-align: center;
     margin-top: 10px;
 }
+
+.card_consulta_botao {
+    background-color: var(--azul-princial); 
+    color: #ffffff; 
+    border: none;
+    border-radius: 6px; 
+    padding: 10px 20px;
+    margin-top: 10px;
+    max-width: 190px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card_consulta_botao:hover {
+    background-color: #1a64d0; 
+}
