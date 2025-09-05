@@ -1,4 +1,4 @@
-.waiting-room-container {
+.container_pagina_sala_espera {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -6,7 +6,7 @@
   padding: 20px;
 }
 
-.waiting-room-content {
+.container_pagina_sala_espera_conteudo {
   background: white;
   border-radius: 20px;
   padding: 40px;
@@ -16,7 +16,7 @@
   text-align: center;
 }
 
-.waiting-image {
+.container_pagina_sala_espera_conteudo_img {
   width: 100%;
   max-width: 300px;
   height: auto;
@@ -24,31 +24,27 @@
   border-radius: 15px;
 }
 
-.status-header {
+.container_pagina_sala_espera_status {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.waiting-title {
+.container_pagina_sala_espera_status_titulo {
   color: #2d3748;
   font-size: 2rem;
   margin: 0;
   font-weight: 600;
 }
 
-.current-time {
+.container_pagina_sala_espera_status_tempo {
   color: #718096;
   font-size: 1.1rem;
   font-weight: 500;
 }
 
-.status-message {
-  margin-bottom: 30px;
-}
-
-.status-indicator {
+.container_pagina_sala_espera_status_indicator {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,7 +53,7 @@
   font-weight: 600;
 }
 
-.pulse-dot {
+.container_pagina_sala_espera_status_fila {
   width: 12px;
   height: 12px;
   background: #48bb78;
@@ -66,14 +62,14 @@
   animation: pulse 2s infinite;
 }
 
-.waiting-text {
+.container_pagina_sala_espera_texto {
   color: #718096;
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 15px;
 }
 
-.estimated-time {
+.container_pagina_sala_espera_texto_tempo {
   background: #ebf8ff;
   color: #3182ce;
   padding: 10px 15px;
@@ -81,7 +77,8 @@
   font-size: 0.9rem;
 }
 
-.waiting-tips {
+.container_pagina_sala_espera_texto_aguardar {
+  margin-top: 5px;
   background: #f7fafc;
   padding: 20px;
   border-radius: 12px;
@@ -89,19 +86,19 @@
   text-align: left;
 }
 
-.waiting-tips h3 {
+.container_pagina_sala_espera_texto_aguardar h3 {
   color: #2d3748;
   margin: 0 0 15px 0;
   font-size: 1.1rem;
 }
 
-.waiting-tips ul {
+.container_pagina_sala_espera_texto_aguardar ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.waiting-tips li {
+.container_pagina_sala_espera_texto_aguardar li {
   color: #718096;
   margin-bottom: 8px;
   font-size: 0.9rem;
@@ -109,23 +106,23 @@
   align-items: center;
 }
 
-.waiting-tips li:before {
+.container_pagina_sala_espera_texto_aguardar li:before {
   content: "✓";
   color: #48bb78;
   font-weight: bold;
   margin-right: 10px;
 }
 
-.support-contact {
+.container_pagina_sala_espera_contato {
   margin-bottom: 20px;
 }
 
-.support-contact p {
+.container_pagina_sala_espera_contato p {
   color: #718096;
   font-size: 0.9rem;
 }
 
-.start-consultation-btn {
+.container_pagina_sala_espera_contato_botao {
   background: var(--azul-princial);
   color: white;
   border: none;
@@ -138,7 +135,7 @@
   width: 100%;
 }
 
-.start-consultation-btn:hover {
+.container_pagina_sala_espera_contato_botao :hover {
   transform: translateY(-2px);
 }
 
