@@ -11,6 +11,7 @@ import DadosConta from "../pages/DadosConta";
 import EditarDados from "../pages/EditarDados";
 import AgendarConsulta from "../pages/AgendarConsulta";
 import Permissao from "../pages/Permissao";
+import SalaEspera from "../pages/SalaEspera";
 
 export const routes = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ export const routes = createBrowserRouter([
         path: '/permissao',
         element: <Permissao/>
       },
+      {
+        path: '/sala-espera',
+        element: <SalaEspera/>
+      }
     ]
   }
 ]);
