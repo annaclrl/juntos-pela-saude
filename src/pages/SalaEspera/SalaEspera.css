@@ -1,0 +1,159 @@
+.waiting-room-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.waiting-room-content {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.waiting-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 30px;
+  border-radius: 15px;
+}
+
+.status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.waiting-title {
+  color: #2d3748;
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.current-time {
+  color: #718096;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.status-message {
+  margin-bottom: 30px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  color: #48bb78;
+  font-weight: 600;
+}
+
+.pulse-dot {
+  width: 12px;
+  height: 12px;
+  background: #48bb78;
+  border-radius: 50%;
+  margin-right: 10px;
+  animation: pulse 2s infinite;
+}
+
+.waiting-text {
+  color: #718096;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.estimated-time {
+  background: #ebf8ff;
+  color: #3182ce;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.waiting-tips {
+  background: #f7fafc;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.waiting-tips h3 {
+  color: #2d3748;
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+}
+
+.waiting-tips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.waiting-tips li {
+  color: #718096;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.waiting-tips li:before {
+  content: "✓";
+  color: #48bb78;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.support-contact {
+  margin-bottom: 20px;
+}
+
+.support-contact p {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.start-consultation-btn {
+  background: var(--azul-princial);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  width: 100%;
+}
+
+.start-consultation-btn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .waiting-room-content {
+    padding: 30px 20px;
+    margin: 10px;
+  }
+  
+  .waiting-title {
+    font-size: 1.5rem;
+  }
+  
+  .status-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
