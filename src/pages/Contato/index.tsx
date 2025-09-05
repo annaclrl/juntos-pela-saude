@@ -9,8 +9,10 @@ const Contato = () => {
         <main id="container_pagina_contato">
 
             <section id="container_pagina_contato_secao_apresentacao">
-                <h1>Entre em contato com nosso suporte</h1>
-                <p>Preencha o formulário abaixo e nossa equipe entrará em contato com você o mais rápido possível. É simples, rápido e seguro!</p>
+                <div >
+                    <h1>Entre em contato com nosso suporte</h1>
+                    <p>Preencha o formulário abaixo e nossa equipe entrará em contato com você o mais rápido possível. É simples, rápido e seguro!</p>
+                </div>
             </section>
 
             <div className='form-wrapper'>

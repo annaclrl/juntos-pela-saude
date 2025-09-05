@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import './CardConsulta.css'
 
 export type StatusConsulta = "Confirmada" | "Realizada";
@@ -10,9 +11,9 @@ export type CardConsultaProps = {
 }
 
 const CardConsulta = ({ especialidade, medico, dataHora, status }: CardConsultaProps) => {
+    const navigate = useNavigate(); // <-- useNavigate
     const data = new Date(dataHora);
 
-   
     const dataFormatada = data.toLocaleDateString("pt-BR", {
         day: "2-digit",
         month: "2-digit",
@@ -27,7 +28,7 @@ const CardConsulta = ({ especialidade, medico, dataHora, status }: CardConsultaP
     const dataHoraFormatada = `${dataFormatada} - ${horaFormatada}`;
 
     const handleEntrarConsulta = () => {
-        alert("Você entrou na consulta! 🎥"); 
+        navigate("/permissao"); 
     };
 
     return (
@@ -40,7 +41,9 @@ const CardConsulta = ({ especialidade, medico, dataHora, status }: CardConsultaP
                 <p><strong>Status:</strong> {status}</p>
 
                 {status === "Confirmada" && (
-                    <button  className="card_consulta_botao" onClick={handleEntrarConsulta}> Entrar na consulta </button>
+                    <button className="card_consulta_botao" onClick={handleEntrarConsulta}>
+                        Entrar na consulta
+                    </button>
                 )}
             </div>
         </div>

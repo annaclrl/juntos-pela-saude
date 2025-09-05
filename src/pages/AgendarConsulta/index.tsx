@@ -19,7 +19,7 @@ const AgendarConsulta = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
-  // Verifica se usuário está logado
+  
   useEffect(() => {
     const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado") || "null");
     if (!usuarioLogado) {
