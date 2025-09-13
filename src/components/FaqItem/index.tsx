@@ -8,7 +8,7 @@ interface FAQItemProps {
 
 const FaqItem = ({ pergunta, resposta } : FAQItemProps) => {
   return (
-    <details className="faq-itens">
+    <details className="faq-item">
       <summary>
         <span>{pergunta}</span>
         <img src={IconSeta} alt="Seta" className="seta" />

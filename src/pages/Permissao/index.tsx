@@ -1,13 +1,8 @@
 import './Permissao.css'
 import ImgPermissoes from '../../assets/images/microfone-camera.jpg';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Permissao = () => {
-  const navigate = useNavigate();
-
-  const handleAvancar = () =>{
-    navigate("/sala-espera");
-  }
 
   return (
     <main>
@@ -45,7 +40,7 @@ const Permissao = () => {
               </div>
             </div>
           </div>
-          <button onClick={handleAvancar} className="container_pagina_permissao_conteudo_botao">Ir para sala de espera</button>
+          <Link to='/sala-espera' className="container_pagina_permissao_conteudo_botao">Ir para sala de espera</Link>
           <p className="container_pagina_permissao_conteudo_texto">
             Sua privacidade é importante. As permissões são usadas apenas para a consulta e não são gravadas.
           </p>

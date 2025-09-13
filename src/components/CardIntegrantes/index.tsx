@@ -22,11 +22,11 @@ const CardIntegrantes = ({nome, rm, turma, foto, alt, linkedin, github}: CardInt
         <p><strong>RM:</strong> {rm}</p>
         <p><strong>Turma:</strong> {turma}</p>
 
-        <nav>
-          <a href={linkedin} target="_blank">
+        <nav className="card_integrante_redes">
+          <a href={linkedin} target="_blank" rel="noopener noreferrer">
             <img src={IconLinkedln} alt="Ícone do LinkedIn" />
           </a>
-          <a href={github} target="_blank">
+          <a href={github} target="_blank" rel="noopener noreferrer">
             <img src={IconGithub} alt="Ícone do GitHub" />
           </a>
         </nav>
@@ -34,8 +34,5 @@ const CardIntegrantes = ({nome, rm, turma, foto, alt, linkedin, github}: CardInt
     </div>
   );
 }
-  
-
-
 
 export default CardIntegrantes;

@@ -1,64 +1,128 @@
 .card_consulta {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    margin-top: 30px;
-    width: 500px;
-    padding: 25px 0px 30px 25px;
-    gap: 40px;
-    display: flex;
-
+    padding: 20px;
     border-radius: 5px;
     background-color: var(--cinza-claro);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    min-height: 200px;
+    box-sizing: border-box;
 }
 
-
-.card_consulta_conteudo_consulta{
+.card_consulta_conteudo{
     display: flex;
     flex-direction: column;
-    gap: 5px;
-
-}
-.card_consulta_conteudo_consulta h2 {
-    color: var(--azul-princial);
-    font-family: var(--fonte-principal);
-    font-size: 20px;
+    gap: 8px;
+    height: 100%
 }
 
-.card_consulta_conteudo_consulta p {
-    margin-top: 10px;
+.card_consulta_conteudo h2 {
+    color: var(--azul-principal);
     font-family: var(--fonte-principal);
-    font-size: 15px;
+    font-size: 18px;
+    margin: 0 0 10px 0;
 }
 
-.card_consulta_conteudo_consulta a {
+.card_consulta_conteudo p {
+    margin: 0;
     font-family: var(--fonte-principal);
-    background-color: var(--azul-princial);
-    color: #ffffff;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 15px;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.4;
 }
 
 .card_consulta_botao {
-    background-color: var(--azul-princial); 
+    background-color: var(--azul-principal); 
     color: #ffffff; 
     border: none;
     border-radius: 6px; 
-    padding: 10px 20px;
-    margin-top: 10px;
-    max-width: 190px;
+    padding: 10px 16px;
+    margin-top: 15px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    max-width: 100%;
+    text-decoration: none;
 }
 
 .card_consulta_botao:hover {
     background-color: #1a64d0; 
+}
+
+.icone_botao {
+    font-size: 16px;
+}
+
+
+@media (max-width: 768px) {
+    .card_consulta {
+        padding: 16px;
+        min-height: 180px;
+    }
+    
+    .card_consulta_conteudo h2 {
+        font-size: 16px;
+    }
+    
+    .card_consulta_conteudo p {
+        font-size: 13px;
+    }
+    
+    .card_consulta_botao {
+        padding: 8px 14px;
+        font-size: 13px;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .card_consulta {
+        padding: 14px;
+        min-height: 160px;
+    }
+    
+    .card_consulta_conteudo {
+        gap: 6px;
+    }
+    
+    .card_consulta_conteudo h2 {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+    
+    .card_consulta_conteudo p {
+        font-size: 12px;
+    }
+    
+    .card_consulta_botao {
+        padding: 8px 12px;
+        font-size: 12px;
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card_consulta_botao {
+        min-height: 44px; 
+    }
+}
+
+@media (max-width: 320px) {
+    .card_consulta {
+        padding: 12px;
+    }
+    
+    .card_consulta_conteudo h2 {
+        font-size: 14px;
+    }
+    
+    .card_consulta_conteudo p {
+        font-size: 11px;
+    }
 }

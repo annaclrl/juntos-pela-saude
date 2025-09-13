@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "../../components/ModalAcesso";
 import "./AgendarConsulta.css";
 
 interface Consulta {
+  id: number;
   especialidade: string;
   medico: string;
   dataHora: string;
@@ -17,9 +18,20 @@ const AgendarConsulta = () => {
   const [dataHora, setDataHora] = useState("");
   const [usuarioEmail, setUsuarioEmail] = useState<string | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
-  
+  const medicosPorEspecialidade: Record<string, string[]> = {
+    "Fisioterapia": ["Dr. Felipe Silva", "Dr. Carlos Almeida"],
+    "Pediatria": ["Dr. Gabriel Oliveira", "Dra. Ana Costa"],
+    "Dermatologia": ["Dra. Maria Rodrigues", "Dr. João Santos"],
+    "Cardiologia": ["Dr. Ricardo Pereira", "Dr. Carlos Almeida"],
+    "Oftalmologia": ["Dra. Fernanda Lima", "Dr. João Santos"],
+    "Ginecologia": ["Dra. Ana Costa", "Dra. Maria Rodrigues"],
+    "Ortopedia": ["Dr. Felipe Silva", "Dr. Ricardo Pereira"],
+    "Neurologia": ["Dr. Gabriel Oliveira", "Dra. Fernanda Lima"]
+  };
+
   useEffect(() => {
     const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado") || "null");
     if (!usuarioLogado) {
@@ -29,35 +41,61 @@ const AgendarConsulta = () => {
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!usuarioEmail) return;
+  const formatarData = (data: string) => {
+    if (!data) return "";
+    const date = new Date(data);
+    return date.toLocaleDateString("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+  };
 
+  const isDataValida = useMemo(() => {
+    if (!dataHora) return false;
     const dataSelecionada = new Date(dataHora);
-    const agora = new Date();
+    return dataSelecionada >= new Date();
+  }, [dataHora]);
 
-    if (dataSelecionada < agora) {
-      alert("❌ Não é possível agendar para uma data que já passou.");
-      return;
-    }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!usuarioEmail || !isDataValida) return;
+
+    setIsSubmitting(true);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    
+    const consultas = JSON.parse(localStorage.getItem("consultas") || "[]");
+
+
+    const novoId = consultas.length > 0 ? Math.max(...consultas.map((c: any) => c.id)) + 1 : 1;
 
     const novaConsulta: Consulta = {
+      id: novoId, 
       especialidade,
       medico,
       dataHora,
       status: "Confirmada",
-      usuarioEmail,
+      usuarioEmail
     };
 
-    const consultas = JSON.parse(localStorage.getItem("consultas") || "[]");
     consultas.push(novaConsulta);
     localStorage.setItem("consultas", JSON.stringify(consultas));
 
-    navigate("/agenda");
+    setIsSubmitting(false);
+
+    navigate("/agenda", {
+      state: { message: "Consulta agendada com sucesso! ✅", showConfetti: true }
+    });
   };
 
+
+  const medicosDisponiveis = especialidade ? medicosPorEspecialidade[especialidade] || [] : [];
+
   return (
-    <main>
+    <main className="agendar-consulta-main">
       <Modal
         mostrar={showModal}
         titulo="Atenção"
@@ -66,73 +104,168 @@ const AgendarConsulta = () => {
         acaoOpcional={{ texto: "Ir para Login", onClick: () => navigate("/login") }}
       />
 
-      <section id="agendar_consulta_container" style={{ opacity: showModal ? 0.3 : 1, pointerEvents: showModal ? "none" : "auto" }}>
+      <section
+        id="agendar_consulta_container"
+        className={showModal ? 'disabled' : ''}
+        aria-hidden={showModal}
+      >
+        <div className="agendar-consulta-header">
+          <h1>Agendar Consulta</h1>
+          <p className="agendar-consulta-subtitle">
+            Preencha o formulário abaixo para agendar sua consulta online
+          </p>
+        </div>
 
-        <h1>Agendar Consulta</h1>
-        <p>Preencha o formulário abaixo para agendar sua consulta.</p>
+        <div className="agendar-consulta-content">
+          <form className="agendar_consulta_form" onSubmit={handleSubmit}>
+            <div className="form-step">
+              <div className="step-header">
+                <span className="step-number">1</span>
+                <h3>Informações da Consulta</h3>
+              </div>
 
-        <form className="agendar_consulta_form" onSubmit={handleSubmit}>
+              <div className="agendar_consulta_form_campo">
+                <label htmlFor="especialidade">
+                  <span className="label-icon"></span>
+                  Especialidade Médica
+                </label>
+                <select
+                  id="especialidade"
+                  value={especialidade}
+                  onChange={(e) => setEspecialidade(e.target.value)}
+                  required
+                  className={especialidade ? "has-value" : ""}
+                >
+                  <option value="">Selecione uma especialidade</option>
+                  <option value="Fisioterapia">Fisioterapia</option>
+                  <option value="Pediatria">Pediatria</option>
+                  <option value="Dermatologia">Dermatologia</option>
+                  <option value="Cardiologia">Cardiologia</option>
+                  <option value="Oftalmologia">Oftalmologia</option>
+                  <option value="Ginecologia">Ginecologia</option>
+                  <option value="Ortopedia">Ortopedia</option>
+                  <option value="Neurologia">Neurologia</option>
+                </select>
+              </div>
 
-          <div className="agendar_consulta_form_campo">
-            <label htmlFor="especialidade">Especialidade:</label>
-            <select
-              id="especialidade"
-              value={especialidade}
-              onChange={(e) => setEspecialidade(e.target.value)}
-              required
-            >
-              <option value="">Selecione</option>
-              <option value="Fisioterapia">Fisioterapia</option>
-              <option value="Pediatria">Pediatria</option>
-              <option value="Dermatologia">Dermatologia</option>
-              <option value="Cardiologia">Cardiologia</option>
-              <option value="Oftalmologia">Oftalmologia</option>
-              <option value="Ginecologia">Ginecologia</option>
-              <option value="Ortopedia">Ortopedia</option>
-              <option value="Neurologia">Neurologia</option>
-            </select>
+              {especialidade && (
+                <div className="agendar_consulta_form_campo">
+                  <label htmlFor="medico">
+                    <span className="label-icon"></span>
+                    Médico
+                  </label>
+                  <select
+                    id="medico"
+                    value={medico}
+                    onChange={(e) => setMedico(e.target.value)}
+                    required
+                    className={medico ? 'has-value' : ''}
+                  >
+                    <option value="">Selecione um médico</option>
+                    {medicosDisponiveis.map((med) => (
+                      <option key={med} value={med}>
+                        {med}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {medico && (
+                <div className="agendar_consulta_form_campo">
+                  <label htmlFor="dataHora">
+                    <span className="label-icon"></span>
+                    Data e Horário
+                  </label>
+                  <input
+                    type="datetime-local"
+                    id="dataHora"
+                    value={dataHora}
+                    onChange={(e) => setDataHora(e.target.value)}
+                    required
+                    className={dataHora ? 'has-value' : ''}
+                  />
+                  {dataHora && (
+                    <span className="selected-date">
+                      Selecionado: {formatarData(dataHora)}
+                    </span>
+                  )}
+                  {dataHora && !isDataValida &&
+                    <span className="data_invalida">
+                      Data inválida!
+                    </span>}
+                </div>
+              )}
+            </div>
+
+            <div className="form-actions">
+              <button
+                id="agendar_consulta_botao"
+                type="submit"
+                disabled={showModal || isSubmitting || !especialidade || !medico || !dataHora}
+                className={isSubmitting ? 'submitting' : ''}
+              >
+                {isSubmitting ? (
+                  <>
+                    <span className="loading-spinner"></span>
+                    Agendando...
+                  </>
+                ) : (
+                  <>
+                    <span className="button-icon"></span>
+                    Confirmar Agendamento
+                  </>
+                )}
+              </button>
+            </div>
+          </form>
+
+          <div className="agendar-consulta_informacoes">
+            <div className="info-header">
+              <span className="info-icon"></span>
+              <h2>Informações Importantes</h2>
+            </div>
+            <div className="info-content">
+              <div className="info-item">
+                <span className="item-icon"></span>
+                <p>Você receberá um e-mail de confirmação com todos os detalhes</p>
+              </div>
+              <div className="info-item">
+                <span className="item-icon"></span>
+                <p>Chegue 10 minutos antes do horário agendado</p>
+              </div>
+              <div className="info-item">
+                <span className="item-icon"></span>
+                <p>Tenha seus documentos e exames em mãos</p>
+              </div>
+              <div className="info-item">
+                <span className="item-icon"></span>
+                <p>Teste sua conexão antes da consulta</p>
+              </div>
+            </div>
+            <div className="info-footer">
+              <p>Precisa de ajuda? <a href="/contato">Entre em contato conosco</a></p>
+            </div>
           </div>
+        </div>
 
-          <div className="agendar_consulta_form_campo">
-            <label htmlFor="medico">Médico:</label>
-            <select
-              id="medico"
-              value={medico}
-              onChange={(e) => setMedico(e.target.value)}
-              required
-            >
-              <option value="">Selecione</option>
-              <option value="Dr. Felipe">Dr. Felipe</option>
-              <option value="Dr. Gabriel">Dr. Gabriel</option>
-              <option value="Dra. Ana">Dra. Ana</option>
-              <option value="Dr. João">Dr. João</option>
-              <option value="Dra. Maria">Dra. Maria</option>
-              <option value="Dr. Carlos">Dr. Carlos</option>
-              <option value="Dra. Fernanda">Dra. Fernanda</option>
-              <option value="Dr. Ricardo">Dr. Ricardo</option>
-            </select>
+        <div className="agendar-consulta-progress">
+          <div className={`progress-step ${especialidade ? 'completed' : 'active'}`}>
+            <span className="step-number">1</span>
+            <span className="step-label">Especialidade</span>
           </div>
-
-          <div className="agendar_consulta_form_campo">
-            <label htmlFor="dataHora">Data e Hora:</label>
-            <input
-              type="datetime-local"
-              id="dataHora"
-              value={dataHora}
-              onChange={(e) => setDataHora(e.target.value)}
-              required
-            />
+          <div className={`progress-step ${medico ? 'completed' : especialidade ? 'active' : ''}`}>
+            <span className="step-number">2</span>
+            <span className="step-label">Médico</span>
           </div>
-
-          <button id="agendar_consulta_botao" type="submit" disabled={showModal}>
-            Agendar
-          </button>
-        </form>
-
-        <div className="agendar-consulta_informacoes">
-          <h2>Informações Adicionais</h2>
-          <p>Após o agendamento, você receberá um e-mail de confirmação com todos os detalhes da sua consulta.</p>
-          <p>Se precisar de ajuda, entre em <a href="/contato">contato</a>.</p>
+          <div className={`progress-step ${dataHora ? 'completed' : medico ? 'active' : ''}`}>
+            <span className="step-number">3</span>
+            <span className="step-label">Data/Hora</span>
+          </div>
+          <div className={`progress-step ${dataHora ? 'active' : ''}`}>
+            <span className="step-number">4</span>
+            <span className="step-label">Confirmação</span>
+          </div>
         </div>
       </section>
     </main>
