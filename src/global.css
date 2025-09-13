@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
 
 
 :root {
@@ -20,7 +20,7 @@
   }
 
   body {
-    @apply flex flex-col min-h-screen bg-azul-claro;
+    @apply flex flex-col min-h-screen bg-[var(--azul-claro)];
   }
 
   main {
@@ -32,7 +32,7 @@
 
 @layer components {
   header {
-    @apply bg-azul-principal font-family: var(--fonte-principal) flex justify-between items-center px-[30px] py-[20px] shadow-md relative;
+    @apply bg-[var(--azul-principal)] flex justify-between items-center px-[30px] py-[20px] shadow-md relative;
   }
 
   .cabecalho_logo {
@@ -51,7 +51,7 @@
   }
 
   .cabecalho_lista_navegacao {
-    @apply flex gap-[40px] m-0 p-0;
+    @apply flex gap-[40px] m-0 p-0 text-white;
   }
 
   .cabecalho_item_navegacao {
@@ -78,7 +78,6 @@
   .cabecalho_icone_usuario {
     @apply w-[70px] h-auto transition-all duration-300;
   }
-
 
 
 
