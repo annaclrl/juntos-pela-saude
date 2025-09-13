@@ -1,53 +1,34 @@
-import { useNavigate } from 'react-router-dom';
-import './CardConsulta.css'
+import { Link } from "react-router-dom";
+import "./CardConsulta.css";
 
-export type StatusConsulta = "Confirmada" | "Realizada";
+export type StatusConsulta = "Confirmada" | "Realizada" | "Cancelada" | "Pendente";
 
 export type CardConsultaProps = {
-    especialidade: string;
-    medico: string;
-    dataHora: string;
-    status: StatusConsulta;
-}
+  especialidade: string;
+  medico: string;
+  dataHora: string;
+  status: StatusConsulta;
+  onAtualizarStatus: (id: number, novoStatus: StatusConsulta) => void;
+};
 
 const CardConsulta = ({ especialidade, medico, dataHora, status }: CardConsultaProps) => {
-    const navigate = useNavigate(); // <-- useNavigate
-    const data = new Date(dataHora);
+  const data = new Date(dataHora);
 
-    const dataFormatada = data.toLocaleDateString("pt-BR", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-    });
+  const dataHoraFormatada = `${data.toLocaleDateString("pt-BR")} - ${data.toLocaleTimeString("pt-BR", { hour: '2-digit', minute: '2-digit' })}`;
 
-    const horaFormatada =
-        data.getMinutes() === 0
-            ? `${data.getHours()}h`
-            : `${data.getHours()}h${data.getMinutes().toString().padStart(2, "0")}`;
+  return (
+    <div className="card_consulta">
+      <div className="card_consulta_conteudo">
+        <h2>Consulta</h2>
+        <p><strong>Especialidade:</strong> {especialidade}</p>
+        <p><strong>Médico:</strong> {medico}</p>
+        <p><strong>Data e Hora:</strong> {dataHoraFormatada}</p>
+        <p><strong>Status:</strong> {status}</p>
 
-    const dataHoraFormatada = `${dataFormatada} - ${horaFormatada}`;
-
-    const handleEntrarConsulta = () => {
-        navigate("/permissao"); 
-    };
-
-    return (
-        <div className="card_consulta">
-            <div className="card_consulta_conteudo_consulta">
-                <h2>CONSULTA</h2>
-                <p><strong>Especialidade:</strong> {especialidade}</p>
-                <p><strong>Nome do médico:</strong> {medico}</p>
-                <p><strong>Data e Hora:</strong> {dataHoraFormatada}</p>
-                <p><strong>Status:</strong> {status}</p>
-
-                {status === "Confirmada" && (
-                    <button className="card_consulta_botao" onClick={handleEntrarConsulta}>
-                        Entrar na consulta
-                    </button>
-                )}
-            </div>
-        </div>
-    )
-}
+        <Link to={'/permissao'} className="card_consulta_botao"> Entrar na consulta</Link>   
+      </div>
+    </div>
+  );
+};
 
 export default CardConsulta;

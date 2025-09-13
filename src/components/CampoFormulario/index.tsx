@@ -1,21 +1,26 @@
-import './CampoFormulario.css'
+import "./CampoFormulario.css";
 
 type CampoFormProps = {
   label: string;
-  type?: string;
+  type?: React.HTMLInputTypeAttribute; 
   id: string;
   name?: string;
   placeholder?: string;
   multiline?: boolean;
   value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onChange?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
   required?: boolean;
-  className?: string; 
+  className?: string;
+  error?: string;
+  disabled?: boolean;
+  title?: string;
 };
 
 const CampoFormulario = ({
   label,
-  type = 'text',
+  type = "text",
   id,
   name,
   placeholder,
@@ -23,11 +28,14 @@ const CampoFormulario = ({
   value,
   onChange,
   required = false,
-  className = ''
+  className = "",
+  error,
+  disabled = false,
 }: CampoFormProps) => {
   return (
     <div className={`campo ${className}`}>
       <label htmlFor={id}>{label}</label>
+
       {multiline ? (
         <textarea
           id={id}
@@ -36,6 +44,9 @@ const CampoFormulario = ({
           value={value}
           onChange={onChange}
           required={required}
+          aria-required={required}
+          aria-label={label}
+          disabled={disabled}
         />
       ) : (
         <input
@@ -46,8 +57,13 @@ const CampoFormulario = ({
           value={value}
           onChange={onChange}
           required={required}
+          aria-required={required}
+          aria-label={label}
+          disabled={disabled}
         />
       )}
+
+      {error && <span className="erro">{error}</span>}
     </div>
   );
 };

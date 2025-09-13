@@ -4,13 +4,19 @@ import IconCalendario from '../../assets/icons/icon-calendario.png'
 import IconDuvida from '../../assets/icons/icon-duvida.png'
 import IconChat from '../../assets/icons/icon-chat.png'
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
+const PaginaInicial = () => {
+  const [loaded, setLoaded] = useState(false);
 
-const PaginaInicial = () =>{
-    return(
-        <main id="container_pagina_inicial">
-        <section id="container_pagina_inicial_secao_apresentacao">
-            <div className="container_pagina_inicial_secao_apresentacao_texto">
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
+
+  return(
+    <main id="container_pagina_inicial">
+      <section id="container_pagina_inicial_secao_apresentacao" className={loaded ? 'loaded' : ''}>
+       <div className="container_pagina_inicial_secao_apresentacao_texto">
                 <h1>Boas-Vindas!</h1>
                 <p>Sua <span>saúde</span> mais próxima de você.</p>
                 <p>Aqui, cuidar da saúde é <span>simples</span> e <span>digital</span>.</p>
@@ -18,31 +24,51 @@ const PaginaInicial = () =>{
             <div className="container_pagina_inicial_secao_apresentacao_imagem">
                 <img className="imagem-pagina-principal" src={ImagemPrincipal} alt="Representação de uma consulta online" />
             </div>
-        </section>
-        <section id="container_pagina_inicial_secao_funcionalidades">
-            <h2>Como funciona?</h2>
+      </section>
+      
+      <section id="container_pagina_inicial_secao_funcionalidades" className={loaded ? 'loaded' : ''}>
+        <h2>Como funciona?</h2>
 
-            <div className="container_pagina_inicial_secao_funcionalidades_cards">
-                
-                <div>
-                    <img src={IconCalendario} alt="Icone de calendário" />
-                    <Link to={"/agendar-consulta"}>Agende sua consulta</Link>
-                </div>
-
-                <div>
-                    <img src={IconDuvida} alt="Icone de dúvida" />
-                    <Link to={"/faq"}>Tire suas dúvidas</Link>
-                </div>
-
-                <div>
-                    <img src={IconChat} alt="Icone de chat" />
-                    <Link to={"/contato"}>Dê sua opinião</Link>
-                </div>
-
+        <div className="container_pagina_inicial_secao_funcionalidades_cards">
+          <div className="funcionalidade-card">
+            <div className="icon-container">
+              <img src={IconCalendario} alt="Ícone de calendário" aria-hidden="true" />
             </div>
-        </section>
+            <h3>Agendamento Simplificado</h3>
+            <p>Marque sua consulta de forma rápida e sem complicações</p>
+            <Link to="/agendar-consulta" className="card-link">
+              Agende sua consulta
+              <span className="arrow">→</span>
+            </Link>
+          </div>
+
+          <div className="funcionalidade-card">
+            <div className="icon-container">
+              <img src={IconDuvida} alt="Ícone de interrogação representando dúvidas" aria-hidden="true" />
+            </div>
+            <h3>Tire suas Dúvidas</h3>
+            <p>Encontre respostas para as perguntas mais frequentes</p>
+            <Link to="/faq" className="card-link">
+              Ver perguntas frequentes
+              <span className="arrow">→</span>
+            </Link>
+          </div>
+
+          <div className="funcionalidade-card">
+            <div className="icon-container">
+              <img src={IconChat} alt="Ícone de balão de conversa" aria-hidden="true" />
+            </div>
+            <h3>Fale Conosco</h3>
+            <p>Sua opinião é importante para melhorarmos nossos serviços</p>
+            <Link to="/contato" className="card-link">
+              Deixe sua opinião
+              <span className="arrow">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
-    );
+  );
 }
 
 export default PaginaInicial;

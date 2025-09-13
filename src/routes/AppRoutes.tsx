@@ -12,11 +12,13 @@ import EditarDados from "../pages/EditarDados";
 import AgendarConsulta from "../pages/AgendarConsulta";
 import Permissao from "../pages/Permissao";
 import SalaEspera from "../pages/SalaEspera";
+import Error from "../pages/Error";
 
 export const routes = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",

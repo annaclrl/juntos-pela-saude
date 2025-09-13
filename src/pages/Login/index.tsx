@@ -1,32 +1,35 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import Logo from '../../assets/images/logo-completa-azul.png';
 import CampoFormulario from "../../components/CampoFormulario";
-
-type LoginUsuarioProps = {
-  email: string;
-  senha: string;
-};
+import type { UsuarioLogin } from "../../types/usuario";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [mensagem, setMensagem] = useState("");
   const [corMensagem, setCorMensagem] = useState<"red" | "green">("red");
+  const [isLoading, setIsLoading] = useState(false);
 
   function mostrarMensagem(msg: string, cor: "red" | "green") {
     setMensagem(msg);
     setCorMensagem(cor);
   }
 
-  function getUsuarios(): LoginUsuarioProps[] {
+  function getUsuarios(): UsuarioLogin[] {
     const usuariosJSON = localStorage.getItem("usuarios");
     return usuariosJSON ? JSON.parse(usuariosJSON) : [];
   }
 
-  function handleLogin(e: React.FormEvent) {
+  async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
+    setIsLoading(true);
+
+    // Simular delay de rede
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
     const usuarios = getUsuarios();
     const usuario = usuarios.find((user) => user.email === email);
@@ -43,18 +46,19 @@ const Login = () => {
       localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
 
       setTimeout(() => {
-        window.location.href = "/";
-      }, 1500);
+        navigate('/');
+      }, 2000);
     } else {
       mostrarMensagem("Senha incorreta!", "red");
     }
+    
+    setIsLoading(false);
   }
 
   return (
     <main id="container_pagina_login">
-
-      <Link to={"/"}>
-        <img src={Logo} alt="Logo" />
+      <Link to={"/"} className="logo-link">
+        <img src={Logo} alt="Logo HealthConnect" />
       </Link>
 
       <div className="container_pagina_login_form_wrapper">
@@ -64,28 +68,42 @@ const Login = () => {
             <p>Entre com sua conta</p>
           </div>
 
-          <CampoFormulario
-            id="email"
-            label="Email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Digite seu email"
-          />
+          <div className="form-fields">
+            <CampoFormulario
+              id="email"
+              label="Email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Digite seu email"
+              required
+            />
 
-          <CampoFormulario
-            id="senha"
-            label="Senha"
-            type="password"
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-            placeholder="Digite sua senha"
-          />
+            <CampoFormulario
+              id="senha"
+              label="Senha"
+              type="password"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              placeholder="Digite sua senha"
+              required
+            />
+          </div>
 
-          {mensagem && <div style={{ color: corMensagem }}>{mensagem}</div>}
+          {mensagem && (
+            <div className={`mensagem-login ${corMensagem}`}>
+              {mensagem}
+            </div>
+          )}
 
           <div className="container_pagina_login_botao">
-            <button type="submit">Entrar</button>
+            <button 
+              type="submit" 
+              disabled={isLoading}
+              className={isLoading ? 'loading' : ''}
+            >
+              {isLoading ? 'Entrando...' : 'Entrar'}
+            </button>
           </div>
 
           <p className="container_pagina_login_link">

@@ -16,22 +16,22 @@ const Modal = ({ mostrar, titulo, mensagem, onClose, acaoOpcional }: ModalProps)
   if (!mostrar) return null;
 
   return (
-    <div className="modal_overlay_acesso">
-      <div className="modal_conteudo_acesso">
+    <div className="modal_overlay">
+      <div className="modal_conteudo">
 
-        <div className="modal_conteudo_acesso_cabecalho">
+        <div className="modal_cabecalho">
           {titulo && <h2>{titulo}</h2>}
-                    <button onClick={onClose}>
-              <img src={IconFechar} alt="Icone de x" />
-            </button>
+          <button onClick={onClose}>
+            <img src={IconFechar} alt="Icone de x" />
+          </button>
           <p>{mensagem}</p>
         </div>
-        
+
         <hr />
 
-        <div className="modal_acesso_botao">
+        <div className="modal_botao">
           {acaoOpcional && (
-            <button className="modal_acesso_botao_login" onClick={acaoOpcional.onClick}>{acaoOpcional.texto}</button>
+            <button className="modal_botao_login" onClick={acaoOpcional.onClick}>{acaoOpcional.texto}</button>
           )}
         </div>
 

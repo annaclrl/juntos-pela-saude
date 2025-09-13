@@ -41,7 +41,7 @@ const SalaEspera: React.FC<WaitingRoomProps> = ({ onConsultationStart }) => {
             className="container_pagina_sala_espera_conteudo_img"
           />
 
-          <div>
+          <section>
             <div className="container_pagina_sala_espera_status">
               <h1 className="container_pagina_sala_espera_status_titulo">Sala de Espera</h1>
               <div className="container_pagina_sala_espera_status_tempo">{currentTime}</div>
@@ -62,16 +62,16 @@ const SalaEspera: React.FC<WaitingRoomProps> = ({ onConsultationStart }) => {
                 <strong>Tempo estimado:</strong> aproximadamente {estimatedTime} minutos
               </div>
             </div>
-          </div>
-          <div className="container_pagina_sala_espera_texto_aguardar">
+          </section>
+          <section className="container_pagina_sala_espera_texto_aguardar">
             <h3>Enquanto aguarda:</h3>
             <ul>
-              <li>✓ Verifique se seu áudio e vídeo estão funcionando</li>
-              <li>✓ Escolha um local tranquilo e bem iluminado</li>
-              <li>✓ Tenha seus documentos médicos à mão, se necessário</li>
-              <li>✓ Feche outras aplicações para melhor desempenho</li>
+              <li>Verifique se seu áudio e vídeo estão funcionando</li>
+              <li>Escolha um local tranquilo e bem iluminado</li>
+              <li>Tenha seus documentos médicos à mão, se necessário</li>
+              <li>Feche outras aplicações para melhor desempenho</li>
             </ul>
-          </div>
+          </section>
           <div className="container_pagina_sala_espera_contato">
             <p>Problemas técnicos? <strong>(11) 2661-000</strong></p>
           </div>

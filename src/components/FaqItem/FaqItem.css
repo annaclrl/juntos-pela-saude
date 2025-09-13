@@ -1,4 +1,4 @@
-.faq-itens {
+.faq-item {
     border: none;
     margin-bottom: 20px;
     background-color: #fff;
@@ -6,7 +6,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.faq-itens summary {
+.faq-item summary {
     cursor: pointer;
     padding: 15px 20px;
     font-weight: bold;
