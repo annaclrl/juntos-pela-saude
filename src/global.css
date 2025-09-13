@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+
+:root {
+    --azul-principal: #2563eb;
+    --azul-claro: #dbeafe;
+    --cinza-claro: #f3f4f6;
+    --cinza-escuro: #4b5563;
+    --verde-claro: #27AE60;
+    --vermelho-claro: #EB5757;
+
+    --fonte-principal: "Montserrat", sans-serif;
+}
+
+@layer base {
+  html, body {
+    @apply h-full;
+    font-family: var(--fonte-principal);
+  }
+
+  body {
+    @apply flex flex-col min-h-screen bg-[var(--azul-claro)];
+  }
+
+  main {
+    @apply flex-1;
+  }
+}
+
+/* Cabeçalho */
+
+@layer components {
+  header {
+    @apply bg-[var(--azul-principal)] flex justify-between items-center px-[30px] py-[20px] shadow-md relative;
+  }
+
+  .cabecalho_logo {
+    @apply flex items-center transition-transform duration-300;
+  }
+  .cabecalho_logo:hover {
+    @apply scale-105;
+  }
+
+  .cabecalho_imagem_logo {
+    @apply w-[150px] h-auto transition-all duration-300;
+  }
+
+  .cabecalho_navegacao {
+    @apply absolute left-1/2 -translate-x-1/2;
+  }
+
+  .cabecalho_lista_navegacao {
+    @apply flex gap-[40px] m-0 p-0 text-white;
+  }
+
+  .cabecalho_item_navegacao {
+    @apply list-none;
+  }
+
+  .cabecalho_link_navegacao {
+    @apply text-white no-underline text-[18px] font-medium inline-block px-4 py-2 rounded-md transition-all duration-300 relative;
+  }
+  .cabecalho_link_navegacao:hover {
+    @apply bg-white/10 scale-110;
+  }
+  .cabecalho_link_navegacao:focus {
+    @apply outline outline-2 outline-white outline-offset-2;
+  }
+
+  .cabecalho_botao_usuario {
+    @apply bg-transparent border-0 cursor-pointer p-2 rounded-full transition-all duration-300 flex items-center justify-center relative;
+  }
+  .cabecalho_botao_usuario:hover {
+    @apply bg-white/10 scale-110;
+  }
+
+  .cabecalho_icone_usuario {
+    @apply w-[70px] h-auto transition-all duration-300;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  /* Cabeçalho Responsivo */
+  @media (max-width: 1024px) {
+    .cabecalho {
+      @apply px-[25px] py-[18px];
+    }
+    .cabecalho_lista_navegacao {
+      @apply gap-[30px];
+    }
+    .cabecalho_link_navegacao {
+      @apply text-[17px] px-[14px] py-[7px];
+    }
+    .cabecalho_icone_usuario {
+      @apply w-[60px];
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cabecalho {
+      @apply px-[20px] py-[15px] flex-wrap justify-center gap-5;
+    }
+    .cabecalho_navegacao {
+      @apply static translate-x-0 order-3 w-full mt-[15px];
+    }
+    .cabecalho_lista_navegacao {
+      @apply justify-center flex-wrap gap-[20px];
+    }
+    .cabecalho_link_navegacao {
+      @apply text-[16px] px-[12px] py-[6px];
+    }
+    .cabecalho_imagem_logo {
+      @apply w-[130px];
+    }
+    .cabecalho_icone_usuario {
+      @apply w-[50px];
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cabecalho {
+      @apply px-[15px] py-[12px] gap-[15px];
+    }
+    .cabecalho_lista_navegacao {
+      @apply gap-[15px];
+    }
+    .cabecalho_link_navegacao {
+      @apply text-[14px] px-[10px] py-[5px];
+    }
+    .cabecalho_imagem_logo {
+      @apply w-[110px];
+    }
+    .cabecalho_icone_usuario {
+      @apply w-[40px];
+    }
+  }
+}

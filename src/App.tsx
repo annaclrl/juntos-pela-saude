@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import './App.css';
+import './global.css';
 import Cabecalho from "./components/Cabecalho";
 import Rodape from './components/Rodape';
 
