@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "./Rodape.css";
 
 const Rodape = () => {
   return (
