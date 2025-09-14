@@ -1,4 +1,4 @@
-import "./CampoFormulario.css";
+
 
 type CampoFormProps = {
   label: string;

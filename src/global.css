@@ -79,6 +79,24 @@
     @apply w-[70px] h-auto transition-all duration-300;
   }
 
+  /* CampoFormulario */
+
+  @layer components {
+  .campo {
+    @apply flex flex-col gap-[10px];
+  }
+
+  .campo label {
+    @apply text-lg font-normal;
+  }
+
+  .campo input,
+  .campo textarea {
+    @apply w-[400px] p-[10px] text-base border border-gray-300 bg-[#e6f3ff] mt-[5px] rounded-[3px] resize-none;
+  }
+}
+
+
 
 
 
