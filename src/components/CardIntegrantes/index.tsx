@@ -1,4 +1,3 @@
-import './CardIntegrantes.css'
 import IconLinkedln from '../../assets/icons/icon-linkedln.png'
 import IconGithub from '../../assets/icons/icon-github.png'
 

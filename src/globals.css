@@ -3,18 +3,20 @@
 
 
 :root {
-    --azul-principal: #2563eb;
-    --azul-claro: #dbeafe;
-    --cinza-claro: #f3f4f6;
-    --cinza-escuro: #4b5563;
-    --verde-claro: #27AE60;
-    --vermelho-claro: #EB5757;
+  --azul-principal: #2563eb;
+  --azul-claro: #dbeafe;
+  --cinza-claro: #f3f4f6;
+  --cinza-escuro: #4b5563;
+  --verde-claro: #27AE60;
+  --vermelho-claro: #EB5757;
 
-    --fonte-principal: "Montserrat", sans-serif;
+  --fonte-principal: "Montserrat", sans-serif;
 }
 
 @layer base {
-  html, body {
+
+  html,
+  body {
     @apply h-full;
     font-family: var(--fonte-principal);
   }
@@ -38,6 +40,7 @@
   .cabecalho_logo {
     @apply flex items-center transition-transform duration-300;
   }
+
   .cabecalho_logo:hover {
     @apply scale-105;
   }
@@ -61,9 +64,11 @@
   .cabecalho_link_navegacao {
     @apply text-white no-underline text-[18px] font-medium inline-block px-4 py-2 rounded-md transition-all duration-300 relative;
   }
+
   .cabecalho_link_navegacao:hover {
     @apply bg-white/10 scale-110;
   }
+
   .cabecalho_link_navegacao:focus {
     @apply outline outline-2 outline-white outline-offset-2;
   }
@@ -71,6 +76,7 @@
   .cabecalho_botao_usuario {
     @apply bg-transparent border-0 cursor-pointer p-2 rounded-full transition-all duration-300 flex items-center justify-center relative;
   }
+
   .cabecalho_botao_usuario:hover {
     @apply bg-white/10 scale-110;
   }
@@ -78,11 +84,11 @@
   .cabecalho_icone_usuario {
     @apply w-[70px] h-auto transition-all duration-300;
   }
-} 
+}
 
-  /* CampoFormulario */
+/* CampoFormulario */
 
-  @layer components {
+@layer components {
   .campo {
     @apply flex flex-col gap-[10px];
   }
@@ -109,7 +115,7 @@
   }
 
   .card_consulta_conteudo h2 {
-    @apply text-[18px] text-[var(--azul-principal)]  m-0 mb-[10px];
+    @apply text-[18px] text-[var(--azul-principal)] m-0 mb-[10px];
   }
 
   .card_consulta_conteudo p {
@@ -129,9 +135,9 @@
   }
 }
 
- /* CardIntegrantes*/
+/* CardIntegrantes*/
 
-  @layer components {
+@layer components {
   .card_integrante {
     @apply w-full max-w-[700px] p-[25px] gap-[40px] flex items-center rounded bg-[var(--cinza-claro)] shadow-md mx-auto box-border;
   }
@@ -165,7 +171,7 @@
   }
 }
 
- /* FaqItem*/
+/* FaqItem*/
 
 @layer components {
   .faq-item {
@@ -173,13 +179,11 @@
   }
 
   .faq-item summary {
-    @apply cursor-pointer px-5 py-4 font-bold flex justify-between items-center 
-           bg-white font-[var(--fonte-principal)] text-base border-b border-gray-300 rounded-md;
+    @apply cursor-pointer px-5 py-4 font-bold flex justify-between items-center bg-white font-[var(--fonte-principal)] text-base border-b border-gray-300 rounded-md;
   }
 
   .faq-resposta {
-    @apply bg-gray-100 px-5 py-5 font-[var(--fonte-principal)] text-sm text-gray-800 
-           shadow-sm rounded-md;
+    @apply bg-gray-100 px-5 py-5 font-[var(--fonte-principal)] text-sm text-gray-800 shadow-sm rounded-md;
   }
 
   .seta {
@@ -187,170 +191,246 @@
   }
 }
 
+/* ModalAcesso*/
 
- 
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-  /* Cabeçalho Responsivo */
-  @media (max-width: 1024px) {
-    .cabecalho {
-      @apply px-[25px] py-[18px];
-    }
-    .cabecalho_lista_navegacao {
-      @apply gap-[30px];
-    }
-    .cabecalho_link_navegacao {
-      @apply text-[17px] px-[14px] py-[7px];
-    }
-    .cabecalho_icone_usuario {
-      @apply w-[60px];
-    }
+@layer components {
+  .modal_overlay {
+    @apply fixed inset-0 bg-black/50 flex justify-center items-center z-[1000];
   }
 
-  @media (max-width: 768px) {
-    .cabecalho {
-      @apply px-[20px] py-[15px] flex-wrap justify-center gap-[20px];
-    }
-    .cabecalho_navegacao {
-      @apply static mt-[15px] order-3;
-    }
-    .cabecalho_lista_navegacao {
-      @apply justify-center gap-[20px] flex-wrap;
-    }
-    .cabecalho_link_navegacao {
-      @apply text-[16px] px-[12px] py-[6px];
-    }
-    .cabecalho_imagem_logo {
-      @apply w-[130px];
-    }
-    .cabecalho_icone_usuario {
-      @apply w-[50px];
-    }
+  .modal_conteudo {
+    @apply bg-white rounded-xl w-[90%] max-w-md p-5 shadow-lg relative;
   }
 
-  @media (max-width: 480px) {
-    .cabecalho {
-      @apply px-[15px] py-[12px] gap-[15px];
-    }
-    .cabecalho_lista_navegacao {
-      @apply gap-[15px];
-    }
-    .cabecalho_link_navegacao {
-      @apply text-[14px] px-[10px] py-[5px];
-    }
-    .cabecalho_imagem_logo {
-      @apply w-[110px];
-    }
-    .cabecalho_icone_usuario {
-      @apply w-[40px];
-    }
+  .modal_cabecalho h2 {
+    @apply m-0 mb-2 text-2xl text-center;
   }
 
-
- /* CardConsulta Responsivo */
-  @media (max-width: 768px) {
-    .card_consulta {
-      @apply p-4 min-h-[180px];
-    }
-    .card_consulta_conteudo h2 {
-      @apply text-[16px];
-    }
-    .card_consulta_conteudo p {
-      @apply text-[13px];
-    }
-    .card_consulta_botao {
-      @apply px-[14px] py-2 text-[13px] w-full justify-center min-h-[44px];
-    }
+  .modal_cabecalho p {
+    @apply m-0 text-base text-center text-gray-800;
   }
 
-  @media (max-width: 480px) {
-    .card_consulta {
-      @apply p-[14px] min-h-[160px];
-    }
-    .card_consulta_conteudo {
-      @apply gap-[6px];
-    }
-    .card_consulta_conteudo h2 {
-      @apply text-[15px] mb-2;
-    }
-    .card_consulta_conteudo p {
-      @apply text-[12px];
-    }
-    .card_consulta_botao {
-      @apply px-3 py-2 text-[12px] mt-3;
-    }
+  .modal_cabecalho button {
+    @apply absolute top-2.5 right-2.5 bg-transparent border-none cursor-pointer p-1.5;
   }
 
-  @media (max-width: 320px) {
-    .card_consulta {
-      @apply p-3;
-    }
-    .card_consulta_conteudo h2 {
-      @apply text-[14px];
-    }
-    .card_consulta_conteudo p {
-      @apply text-[11px];
-    }
+  .modal_cabecalho button img {
+    @apply w-5 h-5;
   }
 
-
- /* CardIntegrantes Responsivo */
-  @media (max-width: 768px) {
-    .card_integrante {
-      @apply gap-[30px] p-5;
-    }
-    .card_integrante_imagem {
-      @apply w-[100px] h-[120px];
-    }
-    .card_integrante_conteudo {
-      @apply text-[16px] gap-[10px];
-    }
-    .card_integrante_redes img {
-      @apply w-7 h-7;
-    }
+  hr {
+    @apply my-5 border-0 border-t border-gray-200;
   }
 
-  @media (max-width: 480px) {
-    .card_integrante {
-      @apply flex-col text-center gap-5 px-[15px] py-5;
-    }
-    .card_integrante_imagem {
-      @apply w-20 h-20;
-    }
-    .card_integrante_conteudo {
-      @apply text-[14px] gap-2 items-center;
-    }
-    .card_integrante_redes {
-      @apply justify-center;
-    }
-    .card_integrante_redes img {
-      @apply w-6 h-6;
-    }
+  .modal_botao {
+    @apply flex justify-center;
   }
 
-  @media (max-width: 320px) {
-    .card_integrante {
-      @apply px-3 py-[15px] gap-[15px];
-    }
-    .card_integrante_imagem {
-      @apply w-[70px] h-[70px];
-    }
-    .card_integrante_conteudo {
-      @apply text-[13px];
-    }
-    .card_integrante_redes img {
-      @apply w-[22px] h-[25px];
-    }
+  .modal_botao_login {
+    @apply bg-[var(--azul-principal)] text-white border-none px-6 py-2.5 rounded-lg text-base cursor-pointer transition-colors duration-200;
   }
+
+  .modal_botao_login:hover {
+    @apply bg-blue-700;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Cabeçalho Responsivo */
+@media (max-width: 1024px) {
+  .cabecalho {
+    @apply px-[25px] py-[18px];
+  }
+
+  .cabecalho_lista_navegacao {
+    @apply gap-[30px];
+  }
+
+  .cabecalho_link_navegacao {
+    @apply text-[17px] px-[14px] py-[7px];
+  }
+
+  .cabecalho_icone_usuario {
+    @apply w-[60px];
+  }
+}
+
+@media (max-width: 768px) {
+  .cabecalho {
+    @apply px-[20px] py-[15px] flex-wrap justify-center gap-[20px];
+  }
+
+  .cabecalho_navegacao {
+    @apply static mt-[15px] order-3;
+  }
+
+  .cabecalho_lista_navegacao {
+    @apply justify-center gap-[20px] flex-wrap;
+  }
+
+  .cabecalho_link_navegacao {
+    @apply text-[16px] px-[12px] py-[6px];
+  }
+
+  .cabecalho_imagem_logo {
+    @apply w-[130px];
+  }
+
+  .cabecalho_icone_usuario {
+    @apply w-[50px];
+  }
+}
+
+@media (max-width: 480px) {
+  .cabecalho {
+    @apply px-[15px] py-[12px] gap-[15px];
+  }
+
+  .cabecalho_lista_navegacao {
+    @apply gap-[15px];
+  }
+
+  .cabecalho_link_navegacao {
+    @apply text-[14px] px-[10px] py-[5px];
+  }
+
+  .cabecalho_imagem_logo {
+    @apply w-[110px];
+  }
+
+  .cabecalho_icone_usuario {
+    @apply w-[40px];
+  }
+}
+
+
+/* CardConsulta Responsivo */
+@media (max-width: 768px) {
+  .card_consulta {
+    @apply p-4 min-h-[180px];
+  }
+
+  .card_consulta_conteudo h2 {
+    @apply text-[16px];
+  }
+
+  .card_consulta_conteudo p {
+    @apply text-[13px];
+  }
+
+  .card_consulta_botao {
+    @apply px-[14px] py-2 text-[13px] w-full justify-center min-h-[44px];
+  }
+}
+
+@media (max-width: 480px) {
+  .card_consulta {
+    @apply p-[14px] min-h-[160px];
+  }
+
+  .card_consulta_conteudo {
+    @apply gap-[6px];
+  }
+
+  .card_consulta_conteudo h2 {
+    @apply text-[15px] mb-2;
+  }
+
+  .card_consulta_conteudo p {
+    @apply text-[12px];
+  }
+
+  .card_consulta_botao {
+    @apply px-3 py-2 text-[12px] mt-3;
+  }
+}
+
+@media (max-width: 320px) {
+  .card_consulta {
+    @apply p-3;
+  }
+
+  .card_consulta_conteudo h2 {
+    @apply text-[14px];
+  }
+
+  .card_consulta_conteudo p {
+    @apply text-[11px];
+  }
+}
+
+
+/* CardIntegrantes Responsivo */
+@media (max-width: 768px) {
+  .card_integrante {
+    @apply gap-[30px] p-5;
+  }
+
+  .card_integrante_imagem {
+    @apply w-[100px] h-[120px];
+  }
+
+  .card_integrante_conteudo {
+    @apply text-[16px] gap-[10px];
+  }
+
+  .card_integrante_redes img {
+    @apply w-7 h-7;
+  }
+}
+
+@media (max-width: 480px) {
+  .card_integrante {
+    @apply flex-col text-center gap-5 px-[15px] py-5;
+  }
+
+  .card_integrante_imagem {
+    @apply w-20 h-20;
+  }
+
+  .card_integrante_conteudo {
+    @apply text-[14px] gap-2 items-center;
+  }
+
+  .card_integrante_redes {
+    @apply justify-center;
+  }
+
+  .card_integrante_redes img {
+    @apply w-6 h-6;
+  }
+}
+
+@media (max-width: 320px) {
+  .card_integrante {
+    @apply px-3 py-[15px] gap-[15px];
+  }
+
+  .card_integrante_imagem {
+    @apply w-[70px] h-[70px];
+  }
+
+  .card_integrante_conteudo {
+    @apply text-[13px];
+  }
+
+  .card_integrante_redes img {
+    @apply w-[22px] h-[25px];
+  }
+}

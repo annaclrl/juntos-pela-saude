@@ -1,4 +1,3 @@
-import "./ModalAcesso.css";
 import IconFechar from '../../assets/icons/icon-fechar.png';
 
 type ModalProps = {

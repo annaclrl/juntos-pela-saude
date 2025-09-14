@@ -1,4 +1,3 @@
-import './FaqItem.css';
 import IconSeta from '../../assets/icons/icon-seta.png';
 
 interface FAQItemProps {
