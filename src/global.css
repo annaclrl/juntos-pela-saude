@@ -96,6 +96,38 @@
   }
 }
 
+/* CardConsulta */
+
+@layer components {
+  .card_consulta {
+    @apply flex flex-col p-5 rounded bg-[var(--cinza-claro)] shadow-md h-fit min-h-[200px] box-border;
+  }
+
+  .card_consulta_conteudo {
+    @apply flex flex-col gap-2 h-full;
+  }
+
+  .card_consulta_conteudo h2 {
+    @apply text-[18px] text-[var(--azul-principal)]  m-0 mb-[10px];
+  }
+
+  .card_consulta_conteudo p {
+    @apply text-[14px] leading-snug m-0;
+  }
+
+  .card_consulta_botao {
+    @apply bg-[var(--azul-principal)] text-white border-0 rounded-md px-4 py-2 mt-[15px] text-[14px] font-semibold cursor-pointer transition-colors duration-300 flex items-center gap-2 w-fit max-w-full no-underline;
+  }
+
+  .card_consulta_botao:hover {
+    @apply bg-[#1a64d0];
+  }
+
+  .icone_botao {
+    @apply text-[16px];
+  }
+
+ 
 
 
 
@@ -159,6 +191,53 @@
     }
     .cabecalho_icone_usuario {
       @apply w-[40px];
+    }
+  }
+}
+
+ /* CardConsulta Responsivo */
+  @media (max-width: 768px) {
+    .card_consulta {
+      @apply p-4 min-h-[180px];
+    }
+    .card_consulta_conteudo h2 {
+      @apply text-[16px];
+    }
+    .card_consulta_conteudo p {
+      @apply text-[13px];
+    }
+    .card_consulta_botao {
+      @apply px-[14px] py-2 text-[13px] w-full justify-center min-h-[44px];
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card_consulta {
+      @apply p-[14px] min-h-[160px];
+    }
+    .card_consulta_conteudo {
+      @apply gap-[6px];
+    }
+    .card_consulta_conteudo h2 {
+      @apply text-[15px] mb-2;
+    }
+    .card_consulta_conteudo p {
+      @apply text-[12px];
+    }
+    .card_consulta_botao {
+      @apply px-3 py-2 text-[12px] mt-3;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .card_consulta {
+      @apply p-3;
+    }
+    .card_consulta_conteudo h2 {
+      @apply text-[14px];
+    }
+    .card_consulta_conteudo p {
+      @apply text-[11px];
     }
   }
 }

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "./CardConsulta.css";
 
 export type StatusConsulta = "Confirmada" | "Realizada" | "Cancelada" | "Pendente";
 

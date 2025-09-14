@@ -1,5 +1,3 @@
-
-
 type CampoFormProps = {
   label: string;
   type?: React.HTMLInputTypeAttribute; 
