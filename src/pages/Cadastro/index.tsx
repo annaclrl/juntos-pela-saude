@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Logo from "../../assets/images/logo-completa-azul.png";
-import "./Cadastro.css";
 import { Link, useNavigate } from "react-router-dom";
 import CampoFormulario from "../../components/CampoFormulario";
 import type { Usuario } from "../../types/usuario";
