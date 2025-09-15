@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "../../components/ModalAcesso";
-import "./AgendarConsulta.css";
 
 interface Consulta {
   id: number;
@@ -109,24 +108,24 @@ const AgendarConsulta = () => {
         className={showModal ? 'disabled' : ''}
         aria-hidden={showModal}
       >
-        <div className="agendar-consulta-header">
+        <div className="agendar_consulta_header">
           <h1>Agendar Consulta</h1>
-          <p className="agendar-consulta-subtitle">
+          <p className="agendar_consulta_subtitle">
             Preencha o formulário abaixo para agendar sua consulta online
           </p>
         </div>
 
-        <div className="agendar-consulta-content">
+        <div className="agendar_consulta_conteudo">
           <form className="agendar_consulta_form" onSubmit={handleSubmit}>
-            <div className="form-step">
-              <div className="step-header">
-                <span className="step-number">1</span>
+            <div className="form_step">
+              <div className="step_header">
+                <span className="step_numero">1</span>
                 <h3>Informações da Consulta</h3>
               </div>
 
               <div className="agendar_consulta_form_campo">
                 <label htmlFor="especialidade">
-                  <span className="label-icon"></span>
+                  <span className="label_icon"></span>
                   Especialidade Médica
                 </label>
                 <select
@@ -151,7 +150,7 @@ const AgendarConsulta = () => {
               {especialidade && (
                 <div className="agendar_consulta_form_campo">
                   <label htmlFor="medico">
-                    <span className="label-icon"></span>
+                    <span className="label_icon"></span>
                     Médico
                   </label>
                   <select
@@ -174,7 +173,7 @@ const AgendarConsulta = () => {
               {medico && (
                 <div className="agendar_consulta_form_campo">
                   <label htmlFor="dataHora">
-                    <span className="label-icon"></span>
+                    <span className="label_icon"></span>
                     Data e Horário
                   </label>
                   <input
@@ -186,7 +185,7 @@ const AgendarConsulta = () => {
                     className={dataHora ? 'has-value' : ''}
                   />
                   {dataHora && (
-                    <span className="selected-date">
+                    <span className="selecionar_data">
                       Selecionado: {formatarData(dataHora)}
                     </span>
                   )}
@@ -198,7 +197,7 @@ const AgendarConsulta = () => {
               )}
             </div>
 
-            <div className="form-actions">
+            <div className="form_enviar">
               <button
                 id="agendar_consulta_botao"
                 type="submit"
@@ -207,12 +206,12 @@ const AgendarConsulta = () => {
               >
                 {isSubmitting ? (
                   <>
-                    <span className="loading-spinner"></span>
+                    <span className="agendar_consulta_loading"></span>
                     Agendando...
                   </>
                 ) : (
                   <>
-                    <span className="button-icon"></span>
+                    <span></span>
                     Confirmar Agendamento
                   </>
                 )}
@@ -220,51 +219,51 @@ const AgendarConsulta = () => {
             </div>
           </form>
 
-          <div className="agendar-consulta_informacoes">
-            <div className="info-header">
+          <div className="agendar_consulta_informacoes">
+            <div className="info_header">
               <span className="info-icon"></span>
               <h2>Informações Importantes</h2>
             </div>
-            <div className="info-content">
-              <div className="info-item">
-                <span className="item-icon"></span>
+            <div className="info_conteudo">
+              <div className="info_item">
+                <span className="item_icon"></span>
                 <p>Você receberá um e-mail de confirmação com todos os detalhes</p>
               </div>
-              <div className="info-item">
-                <span className="item-icon"></span>
+              <div className="info_item">
+                <span className="item_icon"></span>
                 <p>Chegue 10 minutos antes do horário agendado</p>
               </div>
-              <div className="info-item">
-                <span className="item-icon"></span>
+              <div className="info_item">
+                <span className="item_icon"></span>
                 <p>Tenha seus documentos e exames em mãos</p>
               </div>
-              <div className="info-item">
-                <span className="item-icon"></span>
+              <div className="info_item">
+                <span className="item_icon"></span>
                 <p>Teste sua conexão antes da consulta</p>
               </div>
             </div>
-            <div className="info-footer">
+            <div className="info_footer">
               <p>Precisa de ajuda? <a href="/contato">Entre em contato conosco</a></p>
             </div>
           </div>
         </div>
 
-        <div className="agendar-consulta-progress">
-          <div className={`progress-step ${especialidade ? 'completed' : 'active'}`}>
-            <span className="step-number">1</span>
-            <span className="step-label">Especialidade</span>
+        <div className="agendar_consulta_progresso">
+          <div className={`progresso_step ${especialidade ? 'completed' : 'active'}`}>
+            <span className="step_numero">1</span>
+            <span className="step_label">Especialidade</span>
           </div>
-          <div className={`progress-step ${medico ? 'completed' : especialidade ? 'active' : ''}`}>
-            <span className="step-number">2</span>
-            <span className="step-label">Médico</span>
+          <div className={`progresso_step ${medico ? 'completed' : especialidade ? 'active' : ''}`}>
+            <span className="step_numero">2</span>
+            <span className="step_label">Médico</span>
           </div>
-          <div className={`progress-step ${dataHora ? 'completed' : medico ? 'active' : ''}`}>
-            <span className="step-number">3</span>
-            <span className="step-label">Data/Hora</span>
+          <div className={`progresso_step ${dataHora ? 'completed' : medico ? 'active' : ''}`}>
+            <span className="step_numero">3</span>
+            <span className="step_label">Data/Hora</span>
           </div>
-          <div className={`progress-step ${dataHora ? 'active' : ''}`}>
-            <span className="step-number">4</span>
-            <span className="step-label">Confirmação</span>
+          <div className={`progresso_step ${dataHora ? 'active' : ''}`}>
+            <span className="step_numero">4</span>
+            <span className="step_label">Confirmação</span>
           </div>
         </div>
       </section>

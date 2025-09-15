@@ -240,7 +240,7 @@
 @layer components {
   .rodape {
     @apply bg-[var(--azul-principal)] font-sans py-[8px] mt-auto;
-     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
   }
 
   .rodape_conteudo {
@@ -257,7 +257,7 @@
 
   .rodape_link:hover {
     @apply bg-white/20 -translate-y-0.5;
-     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 
   }
 
@@ -408,6 +408,212 @@
   }
 }
 
+/* Agendar Consulta */
+#agendar_consulta_container {
+  @apply mx-auto p-8 transition-all duration-300 ease-in-out;
+}
+
+#agendar_consulta_container.disabled {
+  @apply opacity-30 pointer-events-none;
+}
+
+.agendar_consulta_header h1 {
+  @apply text-4xl font-bold mb-4;
+}
+
+.agendar_consulta_subtitle {
+  @apply text-xl text-gray-700;
+}
+
+.agendar_consulta_conteudo {
+  @apply grid [grid-template-columns:1fr_400px] gap-12 mt-10 mb-12;
+}
+
+.agendar_consulta_form {
+  @apply bg-white p-10 rounded-2xl;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form_step {
+  @apply mb-8;
+}
+
+.step_header {
+  @apply flex items-center gap-4 mb-8 pb-4 border-b-2 border-gray-200;
+}
+
+.step_header h3 {
+  @apply text-2xl text-gray-700 m-0;
+}
+
+.agendar_consulta_form_campo {
+  @apply mb-4;
+}
+
+.agendar_consulta_form_campo label {
+  @apply flex items-center gap-2 font-semibold text-gray-700 mb-3 text-lg;
+}
+
+.label_icon {
+  @apply text-xl;
+}
+
+.agendar_consulta_form_campo select,
+.agendar_consulta_form_campo input {
+  @apply w-full px-5 py-4 border-2 border-gray-200 rounded-xl text-base bg-white transition-all duration-300 ease-in-out;
+}
+
+.agendar_consulta_form_campo select:focus,
+.agendar_consulta_form_campo input:focus {
+  @apply border-[var(--azul-principal)] outline-none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.agendar_consulta_form_campo select.has-value,
+.agendar_consulta_form_campo input.has-value {
+  @apply border-green-500 bg-[var(--cinza-claro)];
+}
+
+.selecionar_data {
+  @apply block mt-2 text-sm text-green-500 font-semibold;
+}
+
+.data_invalida {
+  @apply block mt-2 text-sm text-red-500 font-semibold;
+}
+
+.form-enviar {
+  @apply mt-8 pt-8 border-t-2 border-gray-200;
+}
+
+#agendar_consulta_botao {
+  @apply w-full text-white font-bold rounded-xl px-8 py-5 cursor-pointer text-lg transition-all duration-300 ease-in-out flex items-center justify-center gap-3 shadow-md bg-gradient-to-br from-[var(--azul-principal)] to-blue-700;
+}
+
+#agendar_consulta_botao:hover:not(:disabled) {
+  @apply -translate-y-0.5;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+}
+
+#agendar_consulta_botao:disabled {
+  @apply bg-gray-200 cursor-not-allowed;
+}
+
+#agendar_consulta_botao.submitting {
+  @apply bg-[var(--azul-principal)];
+}
+
+.agendar_consulta_loading {
+  @apply w-5 h-5 border-2 border-transparent border-t-white rounded-full animate-spin;
+}
+
+.agendar_consulta_informacoes {
+  @apply bg-white p-8 rounded-2xl h-fit;
+  box-sizing: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.info_header {
+  @apply flex items-center gap-3 mb-6 pb-4 border-b-2 border-gray-200;
+}
+
+.info_icon {
+  @apply text-2xl;
+}
+
+.info_header h2 {
+  @apply text-2xl text-gray-700 m-0;
+}
+
+.info_conteudo {
+  @apply flex flex-col gap-4;
+}
+
+.info_item {
+  @apply flex items-start gap-3 p-4 bg-[var(--cinza-claro)] rounded-lg transition-all duration-300 ease-in-out;
+}
+
+.info_item:hover {
+  @apply bg-[var(--azul-claro)] translate-x-[5px];
+}
+
+.item_icon {
+  @apply text-xl shrink-0 mt-[0.1rem];
+}
+
+.info_item p {
+  @apply m-0 text-[var(--cinza-escuro)] leading-relaxed;
+}
+
+.info_footer {
+  @apply mt-6 pt-4 border-t-2 border-gray-200 text-center;
+}
+
+.info_footer p {
+  @apply m-0 text-[var(--cinza-escuro)];
+}
+
+.info_footer a {
+  @apply text-[var(--azul-principal)] font-semibold transition-all duration-300 ease-in-out no-underline;
+}
+
+.info_footer a:hover {
+  @apply text-blue-700 underline;
+}
+
+.agendar_consulta_progresso {
+  @apply flex justify-between items-center mt-12 p-8 bg-white rounded-2xl;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.progresso_step {
+  @apply flex flex-col items-center gap-2 relative flex-1;
+}
+
+.progresso_step::after {
+  content: '';
+  @apply absolute top-4 left-[60%] right-[-60%] h-[3px] bg-gray-200 z-[1];
+}
+
+.progresso_step:last-child::after {
+  @apply hidden;
+}
+
+.progresso_step.completed::after {
+  @apply bg-green-500;
+}
+
+.progresso_step.active::after {
+  @apply bg-[var(--azul-principal)];
+}
+
+.step_numero {
+  @apply w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm bg-gray-200 text-[var(--cinza-escuro)] relative z-[2];
+}
+
+.progresso_step.active .step-number {
+  @apply bg-[var(--azul-principal)] text-white;
+}
+
+.progresso_step.completed .step-number {
+  @apply bg-green-500 text-white;
+}
+
+.step_label {
+  @apply text-sm text-[var(--cinza-escuro)] font-semibold text-center;
+}
+
+.progresso_step.active .step_label {
+  @apply text-[var(--azul-principal)];
+}
+
+.progresso_step.completed .step_label {
+  @apply text-green-500;
+}
+
+
+
+
+
 
 
 
@@ -438,59 +644,71 @@
 
 
 /* Cabeçalho Responsivo */
-  @media (max-width: 1024px) {
-    .cabecalho {
-      @apply px-[25px] py-[18px];
-    }
-    .cabecalho_lista_navegacao {
-      @apply gap-[30px];
-    }
-    .cabecalho_link_navegacao {
-      @apply text-[17px] px-[14px] py-[7px];
-    }
-    .cabecalho_icone_usuario {
-      @apply w-[60px];
-    }
+@media (max-width: 1024px) {
+  .cabecalho {
+    @apply px-[25px] py-[18px];
   }
 
-  @media (max-width: 768px) {
-    .cabecalho {
-      @apply px-[20px] py-[15px] flex-wrap justify-center gap-5;
-    }
-    .cabecalho_navegacao {
-      @apply static translate-x-0 order-3 w-full mt-[15px];
-    }
-    .cabecalho_lista_navegacao {
-      @apply justify-center flex-wrap gap-[20px];
-    }
-    .cabecalho_link_navegacao {
-      @apply text-[16px] px-[12px] py-[6px];
-    }
-    .cabecalho_imagem_logo {
-      @apply w-[130px];
-    }
-    .cabecalho_icone_usuario {
-      @apply w-[50px];
-    }
+  .cabecalho_lista_navegacao {
+    @apply gap-[30px];
   }
 
-  @media (max-width: 480px) {
-    .cabecalho {
-      @apply px-[15px] py-[12px] gap-[15px];
-    }
-    .cabecalho_lista_navegacao {
-      @apply gap-[15px];
-    }
-    .cabecalho_link_navegacao {
-      @apply text-[14px] px-[10px] py-[5px];
-    }
-    .cabecalho_imagem_logo {
-      @apply w-[110px];
-    }
-    .cabecalho_icone_usuario {
-      @apply w-[40px];
-    }
+  .cabecalho_link_navegacao {
+    @apply text-[17px] px-[14px] py-[7px];
   }
+
+  .cabecalho_icone_usuario {
+    @apply w-[60px];
+  }
+}
+
+@media (max-width: 768px) {
+  .cabecalho {
+    @apply px-[20px] py-[15px] flex-wrap justify-center gap-5;
+  }
+
+  .cabecalho_navegacao {
+    @apply static translate-x-0 order-3 w-full mt-[15px];
+  }
+
+  .cabecalho_lista_navegacao {
+    @apply justify-center flex-wrap gap-[20px];
+  }
+
+  .cabecalho_link_navegacao {
+    @apply text-[16px] px-[12px] py-[6px];
+  }
+
+  .cabecalho_imagem_logo {
+    @apply w-[130px];
+  }
+
+  .cabecalho_icone_usuario {
+    @apply w-[50px];
+  }
+}
+
+@media (max-width: 480px) {
+  .cabecalho {
+    @apply px-[15px] py-[12px] gap-[15px];
+  }
+
+  .cabecalho_lista_navegacao {
+    @apply gap-[15px];
+  }
+
+  .cabecalho_link_navegacao {
+    @apply text-[14px] px-[10px] py-[5px];
+  }
+
+  .cabecalho_imagem_logo {
+    @apply w-[110px];
+  }
+
+  .cabecalho_icone_usuario {
+    @apply w-[40px];
+  }
+}
 
 
 /* CardConsulta Responsivo */
@@ -646,11 +864,6 @@
   }
 }
 
-@media (min-width: 1440px) {
-  .rodape_conteudo {
-    @apply max-w-[1400px];
-  }
-}
 
 /* Agenda Responsivo */
 @media (min-width: 768px) {
@@ -716,5 +929,85 @@
 
   .filtro_status_botoes button {
     @apply w-full;
+  }
+}
+
+/* Agendar Consulta Responsivo */
+@media (max-width: 1024px) {
+  .agendar_consulta_conteudo {
+    @apply grid-cols-1 gap-8;
+  }
+
+  .agendar_consulta_form {
+    @apply p-8;
+  }
+}
+
+@media (max-width: 768px) {
+  #agendar_consulta_container {
+    @apply p-6;
+  }
+
+  .agendar-consulta-header h1 {
+    @apply text-3xl;
+  }
+
+  .agendar-consulta-subtitle {
+    @apply text-lg;
+  }
+
+  .agendar_consulta_form {
+    @apply p-6;
+  }
+
+  .step-header {
+    @apply flex-col items-start gap-2;
+  }
+
+  .step-header h3 {
+    @apply text-xl;
+  }
+
+  .agendar_consulta-progresso {
+    @apply flex-col gap-8 p-6;
+  }
+
+  .progresso_step::after {
+    @apply hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  #agendar_consulta_container {
+    @apply p-4;
+  }
+
+  .agendar_consulta_header h1 {
+    @apply text-2xl;
+  }
+
+  .agendar_consulta_form {
+    @apply p-5;
+  }
+
+  .agendar_consulta_form_campo label {
+    @apply text-base;
+  }
+
+  .agendar_consulta_form_campo select,
+  .agendar_consulta_form_campo input {
+    @apply px-4 py-3 text-sm;
+  }
+
+  #agendar_consulta_botao {
+    @apply px-6 py-4 text-base;
+  }
+
+  .agendar_consulta_informacoes {
+    @apply p-6;
+  }
+
+  .info_header h2 {
+    @apply text-xl;
   }
 }
