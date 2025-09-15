@@ -4,7 +4,6 @@ import Modal from "../../components/ModalAcesso";
 import IconBusca from '../../assets/icons/icon-busca.png';
 import IconFiltro from '../../assets/icons/icon-seta.png';
 import IconAgendaVazia from '../../assets/icons/icon-calendario.png';
-import "./Agenda.css";
 import { Link } from "react-router-dom";
 
 type Consulta = {
@@ -99,25 +98,25 @@ const Agenda = () => {
         acaoOpcional={{ texto: "Ir para Login", onClick: () => window.location.href = "/login" }}
       />
 
-      <div className="agenda-header">
+      <div className="agenda_header">
         <h1>Suas consultas</h1>
         <p>Acompanhe e gerencie suas consultas agendadas</p>
       </div>
 
-      <div className="container_pagina_agenda_filtro_busca">
+      <div className="agenda_filtro_busca">
         {!isMobile && (
-          <div className="filtro-toggle" onClick={() => setFiltroAberto(!filtroAberto)}>
+          <div className="filtro_toggle" onClick={() => setFiltroAberto(!filtroAberto)}>
             <img src={IconFiltro} alt="Filtrar consultas" />
             <span>Filtros</span>
             {(filtroStatus || busca) && (
-              <span className="filtro-badge">
+              <span className="filtro_badge">
                 {(filtroStatus ? 1 : 0) + (busca ? 1 : 0)}
               </span>
             )}
           </div>
         )}
         
-        <form className="container_pagina_agenda_busca" onSubmit={handleBusca}>
+        <form className="agenda_busca" onSubmit={handleBusca}>
           <input
             type="text"
             placeholder={isMobile ? "Buscar..." : "Buscar por médico ou especialidade"}
@@ -130,20 +129,20 @@ const Agenda = () => {
         </form>
 
         {isMobile && (
-          <div className="filtro-toggle-mobile" onClick={() => setFiltroAberto(!filtroAberto)}>
+          <div className="filtro_toggle_mobile" onClick={() => setFiltroAberto(!filtroAberto)}>
             <img src={IconFiltro} alt="Filtrar consultas" />
             {(filtroStatus || busca) && (
-              <span className="filtro-badge">{filtroStatus ? 1 : 0 + (busca ? 1 : 0)}</span>
+              <span className="filtro_badge">{filtroStatus ? 1 : 0 + (busca ? 1 : 0)}</span>
             )}
           </div>
         )}
       </div>
 
       {filtroAberto && (
-        <div className="filtro-opcoes">
-          <div className="filtro-status">
+        <div className="filtro_opcoes">
+          <div className="filtro_status">
             <h3>Status da consulta</h3>
-            <div className="status-buttons">
+            <div className="filtro_status_botoes">
               <button 
                 className={filtroStatus === "" ? "ativo" : ""}
                 onClick={() => setFiltroStatus("")}
@@ -166,25 +165,24 @@ const Agenda = () => {
           </div>
           
           {(filtroStatus || busca) && (
-            <button className="limpar-filtros" onClick={limparFiltros}>
+            <button className="limpar_filtros" onClick={limparFiltros}>
               Limpar filtros
             </button>
           )}
         </div>
       )}
 
-      <div className="container_pagina_agenda_consultas" style={{ opacity: showModal ? 0.3 : 1, pointerEvents: showModal ? "none" : "auto" }}>
+      <div style={{ opacity: showModal ? 0.3 : 1, pointerEvents: showModal ? "none" : "auto" }}>
         {isLoading ? (
-          <div className="conatiner_loading">
-            <div className="loading"></div>
+          <div className="container_loading">
             <p>Carregando suas consultas...</p>
           </div>
         ) : consultasFiltradas.length > 0 ? (
           <>
-            <div className="consultas-header">
+            <div className="consultas">
               <p>{consultasFiltradas.length} consulta{consultasFiltradas.length !== 1 ? 's' : ''} encontrada{consultasFiltradas.length !== 1 ? 's' : ''}</p>
               {(filtroStatus || busca) && (
-                <button className="limpar-filtros-mobile" onClick={limparFiltros}>
+                <button className="limpar_filtros_mobile" onClick={limparFiltros}>
                   Limpar filtros
                 </button>
               )}
@@ -214,7 +212,7 @@ const Agenda = () => {
               }
             </p>
             {(filtroStatus || busca) && consultas.length > 0 ? (
-              <button className="botao_filtros" onClick={limparFiltros}>
+              <button onClick={limparFiltros}>
                 Limpar filtros
               </button>
             ) : (

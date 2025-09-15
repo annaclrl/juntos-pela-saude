@@ -239,7 +239,8 @@
 
 @layer components {
   .rodape {
-    @apply bg-[var(--azul-principal)] font-sans py-[8px] shadow-[0_-4px_6px_rgba(0,0,0,0.1)] mt-auto;
+    @apply bg-[var(--azul-principal)] font-sans py-[8px] mt-auto;
+     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
   }
 
   .rodape_conteudo {
@@ -251,12 +252,13 @@
   }
 
   .rodape_link {
-    @apply no-underline text-white text-lg font-medium px-6 py-3 rounded-lg 
-           inline-flex items-center gap-2 transition-all duration-300;
+    @apply no-underline text-white text-lg font-medium px-6 py-3 rounded-lg inline-flex items-center gap-2 transition-all duration-300;
   }
 
   .rodape_link:hover {
-    @apply bg-white/20 -translate-y-0.5 shadow-[0_4px_12px_rgba(0,0,0,0.15)];
+    @apply bg-white/20 -translate-y-0.5;
+     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+
   }
 
   .rodape_link:focus {
@@ -268,8 +270,146 @@
   }
 
   .rodape_copyright {
-    @apply text-white text-sm  opacity-90 m-0;
+    @apply text-white text-sm opacity-90 m-0;
   }
+}
+
+/* Agenda */
+
+@layer components {
+  .container_pagina_agenda {
+    @apply mx-auto p-6 min-h-[70vh] font-sans;
+  }
+
+  .agenda_header {
+    @apply mb-8 text-center;
+  }
+
+  .agenda_header h1 {
+    @apply text-2xl font-bold mb-2;
+  }
+
+  .agenda_header p {
+    @apply text-gray-700 text-base;
+  }
+
+  .agenda_filtro_busca {
+    @apply flex gap-4 mb-6;
+  }
+
+  .filtro_toggle {
+    @apply flex items-center gap-2 px-5 py-3 bg-white border border-gray-200 rounded-lg cursor-pointer font-medium shadow-sm transition-colors duration-300;
+  }
+
+  .filtro_toggle:hover {
+    @apply border-[var(--azul-principal)];
+  }
+
+  .filtro_toggle-mobile {
+    @apply flex items-center gap-2 p-2 bg-white border border-gray-200 rounded-lg cursor-pointer shadow-sm;
+  }
+
+  .filtro_toggle img,
+  .filtro_toggle_mobile img {
+    @apply w-4.5 h-4.5;
+  }
+
+  .filtro_badge {
+    @apply bg-[var(--azul-principal)] text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-semibold;
+  }
+
+  .agenda_busca {
+    @apply flex items-center flex-1 max-w-[400px] px-4 py-2 border border-gray-200 rounded-lg bg-white shadow-sm transition-all duration-300;
+  }
+
+  .agenda_busca input[type="text"] {
+    @apply flex-1 border-none outline-none text-base bg-transparent w-full;
+  }
+
+  .agenda_busca button {
+    @apply bg-transparent border-none p-1 cursor-pointer rounded transition-all duration-300 flex-shrink-0;
+  }
+
+  .agenda_busca button:hover {
+    @apply bg-gray-100;
+  }
+
+  .agenda_busca button img {
+    @apply w-4.5 h-4.5 object-contain;
+  }
+
+  .filtro_opcoes {
+    @apply bg-white p-6 rounded-lg mb-8 shadow-sm border border-gray-200;
+  }
+
+  .filtro_status h3 {
+    @apply mb-3 text-base font-semibold text-gray-700;
+  }
+
+  .filtro_status_botoes {
+    @apply flex gap-3 flex-wrap mb-4;
+  }
+
+  .filtro_status_botoes button {
+    @apply px-4 py-2 border border-gray-200 rounded-md bg-white cursor-pointer transition-all duration-300 text-sm;
+  }
+
+  .filtro_status_botoes button:hover {
+    @apply border-[var(--azul-principal)] text-[var(--azul-principal)];
+  }
+
+  .filtro_status_botoes button.ativo {
+    @apply bg-[var(--azul-principal)] text-white border-[var(--azul-principal)];
+  }
+
+  .limpar_filtros {
+    @apply bg-transparent border-none text-[var(--azul-principal)] cursor-pointer text-sm underline p-0;
+  }
+
+  .consultas {
+    @apply flex justify-between items-center mb-2 flex-wrap gap-2;
+  }
+
+  .consultas p {
+    @apply text-gray-700 text-sm m-0;
+  }
+
+  .limpar_filtros_mobile {
+    @apply bg-transparent border-none text-[var(--azul-principal)] cursor-pointer text-xs underline py-1 px-2;
+  }
+
+  .container_card_consulta {
+    @apply grid gap-6 w-full;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .container_agenda_vazia {
+    @apply flex flex-col items-center text-center p-8 text-gray-400 w-full min-h-[50vh];
+  }
+
+  .container_agenda_vazia img {
+    @apply w-24 mb-6 opacity-70;
+  }
+
+  .container_agenda_vazia h2 {
+    @apply text-lg mb-2 text-gray-700;
+  }
+
+  .container_agenda_vazia p {
+    @apply mb-6 max-w-[400px] mx-auto text-sm;
+  }
+
+  .botao_consulta {
+    @apply bg-[var(--azul-principal)] text-white border-none rounded-md px-6 py-3 font-medium cursor-pointer transition-all duration-300 text-sm;
+  }
+
+  .container_loading {
+    @apply text-center p-12 w-full min-h-[50vh];
+  }
+}
+
+
+
 
 
 
@@ -298,71 +438,59 @@
 
 
 /* Cabeçalho Responsivo */
-@media (max-width: 1024px) {
-  .cabecalho {
-    @apply px-[25px] py-[18px];
+  @media (max-width: 1024px) {
+    .cabecalho {
+      @apply px-[25px] py-[18px];
+    }
+    .cabecalho_lista_navegacao {
+      @apply gap-[30px];
+    }
+    .cabecalho_link_navegacao {
+      @apply text-[17px] px-[14px] py-[7px];
+    }
+    .cabecalho_icone_usuario {
+      @apply w-[60px];
+    }
   }
 
-  .cabecalho_lista_navegacao {
-    @apply gap-[30px];
+  @media (max-width: 768px) {
+    .cabecalho {
+      @apply px-[20px] py-[15px] flex-wrap justify-center gap-5;
+    }
+    .cabecalho_navegacao {
+      @apply static translate-x-0 order-3 w-full mt-[15px];
+    }
+    .cabecalho_lista_navegacao {
+      @apply justify-center flex-wrap gap-[20px];
+    }
+    .cabecalho_link_navegacao {
+      @apply text-[16px] px-[12px] py-[6px];
+    }
+    .cabecalho_imagem_logo {
+      @apply w-[130px];
+    }
+    .cabecalho_icone_usuario {
+      @apply w-[50px];
+    }
   }
 
-  .cabecalho_link_navegacao {
-    @apply text-[17px] px-[14px] py-[7px];
+  @media (max-width: 480px) {
+    .cabecalho {
+      @apply px-[15px] py-[12px] gap-[15px];
+    }
+    .cabecalho_lista_navegacao {
+      @apply gap-[15px];
+    }
+    .cabecalho_link_navegacao {
+      @apply text-[14px] px-[10px] py-[5px];
+    }
+    .cabecalho_imagem_logo {
+      @apply w-[110px];
+    }
+    .cabecalho_icone_usuario {
+      @apply w-[40px];
+    }
   }
-
-  .cabecalho_icone_usuario {
-    @apply w-[60px];
-  }
-}
-
-@media (max-width: 768px) {
-  .cabecalho {
-    @apply px-[20px] py-[15px] flex-wrap justify-center gap-[20px];
-  }
-
-  .cabecalho_navegacao {
-    @apply static mt-[15px] order-3;
-  }
-
-  .cabecalho_lista_navegacao {
-    @apply justify-center gap-[20px] flex-wrap;
-  }
-
-  .cabecalho_link_navegacao {
-    @apply text-[16px] px-[12px] py-[6px];
-  }
-
-  .cabecalho_imagem_logo {
-    @apply w-[130px];
-  }
-
-  .cabecalho_icone_usuario {
-    @apply w-[50px];
-  }
-}
-
-@media (max-width: 480px) {
-  .cabecalho {
-    @apply px-[15px] py-[12px] gap-[15px];
-  }
-
-  .cabecalho_lista_navegacao {
-    @apply gap-[15px];
-  }
-
-  .cabecalho_link_navegacao {
-    @apply text-[14px] px-[10px] py-[5px];
-  }
-
-  .cabecalho_imagem_logo {
-    @apply w-[110px];
-  }
-
-  .cabecalho_icone_usuario {
-    @apply w-[40px];
-  }
-}
 
 
 /* CardConsulta Responsivo */
@@ -480,43 +608,113 @@
   }
 }
 
-  /* Rodape Responsivo */
+/* Rodape Responsivo */
 
-  @media (max-width: 768px) {
-    .rodape {
-      @apply py-6;
-    }
-    .rodape_conteudo {
-      @apply px-6 gap-5;
-    }
-    .rodape_link {
-      @apply text-base px-5 py-2.5;
-    }
-    .rodape_copyright {
-      @apply text-[0.85rem];
-    }
+@media (max-width: 768px) {
+  .rodape {
+    @apply py-6;
   }
 
-  @media (max-width: 480px) {
-    .rodape {
-      @apply py-5;
-    }
-    .rodape_conteudo {
-      @apply px-4 gap-4;
-    }
-    .rodape_link {
-      @apply text-[0.95rem] px-4 py-2;
-    }
-    .rodape_copyright {
-      @apply text-[0.8rem];
-    }
+  .rodape_conteudo {
+    @apply px-6 gap-5;
   }
 
-  @media (min-width: 1440px) {
-    .rodape_conteudo {
-      @apply max-w-[1400px];
-    }
+  .rodape_link {
+    @apply text-base px-5 py-2.5;
+  }
+
+  .rodape_copyright {
+    @apply text-[0.85rem];
+  }
+}
+
+@media (max-width: 480px) {
+  .rodape {
+    @apply py-5;
+  }
+
+  .rodape_conteudo {
+    @apply px-4 gap-4;
+  }
+
+  .rodape_link {
+    @apply text-[0.95rem] px-4 py-2;
+  }
+
+  .rodape_copyright {
+    @apply text-[0.8rem];
+  }
+}
+
+@media (min-width: 1440px) {
+  .rodape_conteudo {
+    @apply max-w-[1400px];
+  }
+}
+
+/* Agenda Responsivo */
+@media (min-width: 768px) {
+  .container_pagina_agenda {
+    @apply p-8;
+  }
+
+  .agenda_header {
+    @apply text-left;
+  }
+
+  .agenda_header h1 {
+    @apply text-3xl;
+  }
+
+  .agenda_header p {
+    @apply text-base;
+  }
+
+  .agenda_filtro_busca {
+    @apply justify-start;
+  }
+
+  .container_card_consulta {
+    @apply gap-6 w-full;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+
+  .container_agenda_vazia img {
+    @apply w-30;
+  }
+
+  .container_agenda_vazia h2 {
+    @apply text-xl;
   }
 }
 
 
+@media (max-width: 375px) {
+  .container_pagina_agenda {
+    @apply p-4;
+  }
+
+  .agenda_header h1 {
+    @apply text-xl;
+  }
+
+  .agenda_filtro_busca {
+    @apply flex-col items-stretch;
+  }
+
+  .filtro_toggle_mobile {
+    @apply justify-center p-3;
+  }
+
+  .container_card_consulta {
+    grid-template-columns: 1fr;
+  }
+
+  .filtro_status_botoes {
+    @apply flex-col;
+  }
+
+  .filtro_status_botoes button {
+    @apply w-full;
+  }
+}
