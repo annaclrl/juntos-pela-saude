@@ -1,4 +1,3 @@
-import './Permissao.css'
 import ImgPermissoes from '../../assets/images/microfone-camera.jpg';
 import { Link } from 'react-router-dom';
 

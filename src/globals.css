@@ -1152,7 +1152,7 @@
   }
 
   .funcionalidade_card:hover {
-    @apply -translate-y-1.5 ;
+    @apply -translate-y-1.5;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   }
 
@@ -1185,6 +1185,72 @@
   }
 
 }
+
+/* Permissao */
+
+@layer components {
+  .container_pagina_permissao {
+    @apply min-h-screen flex items-center justify-center bg-[var(--azul-claro)];
+  }
+
+  .container_pagina_permissao_conteudo {
+    @apply bg-white rounded-[20px] p-10 max-w-[500px] w-full text-center mb-8;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .container_pagina_permissao_conteudo_img {
+    @apply block w-full max-w-[300px] h-auto mx-auto mb-7.5 rounded-[15px];
+  }
+
+  .container_pagina_permissao_conteudo_titulo {
+    @apply text-[#2d3748] text-[2rem] mb-7.5 font-semibold;
+  }
+
+  .container_pagina_permissao_conteudo_step {
+    @apply flex items-start mb-5 text-left;
+  }
+
+  .step_numero {
+    @apply bg-[var(--azul-principal)] text-white w-[30px] h-[30px] rounded-full flex items-center justify-center font-bold mr-3.5 flex-shrink-0;
+  }
+
+  .step_conteudo h3 {
+    @apply text-[#2d3748] m-0 mb-1.25 text-[1.1rem];
+  }
+
+  .step_conteudo p {
+    @apply text-[#718096] m-0 text-[0.9rem] leading-[1.4];
+  }
+
+  .container_pagina_permissao_conteudo_botao {
+    @apply bg-[var(--azul-principal)] text-white border-none py-3.75 px-7 text-[1.1rem] rounded-[10px] cursor-pointer transition-all duration-300 font-semibold w-full no-underline mt-2.5;
+  }
+
+  .container_pagina_permissao_conteudo_texto {
+    @apply text-[#a0aec0] text-[0.8rem] mt-7.5 italic;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1938,3 +2004,29 @@
     @apply w-[40px];
   }
 }
+
+/* Permissão Responsivo  */
+@media (max-width: 768px) {
+  .container_pagina_permissao_conteudo {
+    @apply p-7.5 mx-2.5;
+  }
+
+  .container_pagina_permissao_conteudo_titulo {
+    @apply text-[1.5rem];
+  }
+}
+
+@media (max-width: 480px) {
+  .container_pagina_permissao_conteudo {
+    @apply p-6 mx-3.75;
+  }
+
+  .container_pagina_permissao_conteudo_titulo {
+    @apply text-[1.3rem];
+  }
+
+  .container_pagina_permissao_conteudo_botao {
+    @apply text-[1rem] mt-[500px];
+  }
+}
+
