@@ -1,5 +1,4 @@
 import {useNavigate } from 'react-router-dom';
-import './Error.css';
 import IconeError from '../../assets/images/imagem-error.png';
 
 const Error = () => {
@@ -10,7 +9,7 @@ const Error = () => {
     }
 
     return (
-        <div className="not-found-container">
+        <div className="not_found_container">
             <img src={IconeError} alt="Imagem de Não Encontrado" />
             <h1>404</h1>
             <h2>Página não encontrada</h2>
