@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Login.css";
 import Logo from '../../assets/images/logo-completa-azul.png';
 import CampoFormulario from "../../components/CampoFormulario";
 import type { UsuarioLogin } from "../../types/usuario";
@@ -28,7 +27,7 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simular delay de rede
+    
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     const usuarios = getUsuarios();
@@ -57,7 +56,7 @@ const Login = () => {
 
   return (
     <main id="container_pagina_login">
-      <Link to={"/"} className="logo-link">
+      <Link to={"/"} className="login_logo">
         <img src={Logo} alt="Logo HealthConnect" />
       </Link>
 
@@ -68,7 +67,7 @@ const Login = () => {
             <p>Entre com sua conta</p>
           </div>
 
-          <div className="form-fields">
+          <div className="login_form_fields">
             <CampoFormulario
               id="email"
               label="Email"
@@ -91,7 +90,7 @@ const Login = () => {
           </div>
 
           {mensagem && (
-            <div className={`mensagem-login ${corMensagem}`}>
+            <div className={`mensagem_login ${corMensagem}`}>
               {mensagem}
             </div>
           )}

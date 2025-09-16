@@ -426,7 +426,8 @@
 }
 
 .agendar_consulta_conteudo {
-  @apply grid [grid-template-columns:1fr_400px] gap-12 mt-10 mb-12;
+  @apply grid gap-12 mt-10 mb-12;
+  grid-template-columns: 1fr 400px;
 }
 
 .agendar_consulta_form {
@@ -1010,607 +1011,662 @@
   }
 
   .integrantes_equipe_cards {
-    @apply grid grid-cols-[repeat(auto-fit, minmax(350px, 1fr))] gap-8 mx-auto;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /* Cabeçalho Responsivo */
-  @media (max-width: 1024px) {
-    .cabecalho {
-      @apply px-[25px] py-[18px];
-    }
-
-    .cabecalho_lista_navegacao {
-      @apply gap-[30px];
-    }
-
-    .cabecalho_link_navegacao {
-      @apply text-[17px] px-[14px] py-[7px];
-    }
-
-    .cabecalho_icone_usuario {
-      @apply w-[60px];
-    }
-  }
-
-  @media (max-width: 768px) {
-    .cabecalho {
-      @apply px-[20px] py-[15px] flex-wrap justify-center gap-5;
-    }
-
-    .cabecalho_navegacao {
-      @apply static translate-x-0 order-3 w-full mt-[15px];
-    }
-
-    .cabecalho_lista_navegacao {
-      @apply justify-center flex-wrap gap-[20px];
-    }
-
-    .cabecalho_link_navegacao {
-      @apply text-[16px] px-[12px] py-[6px];
-    }
-
-    .cabecalho_imagem_logo {
-      @apply w-[130px];
-    }
-
-    .cabecalho_icone_usuario {
-      @apply w-[50px];
-    }
-  }
-
-  @media (max-width: 480px) {
-    .cabecalho {
-      @apply px-[15px] py-[12px] gap-[15px];
-    }
-
-    .cabecalho_lista_navegacao {
-      @apply gap-[15px];
-    }
-
-    .cabecalho_link_navegacao {
-      @apply text-[14px] px-[10px] py-[5px];
-    }
-
-    .cabecalho_imagem_logo {
-      @apply w-[110px];
-    }
-
-    .cabecalho_icone_usuario {
-      @apply w-[40px];
-    }
-  }
-
-
-  /* CardConsulta Responsivo */
-  @media (max-width: 768px) {
-    .card_consulta {
-      @apply p-4 min-h-[180px];
-    }
-
-    .card_consulta_conteudo h2 {
-      @apply text-[16px];
-    }
-
-    .card_consulta_conteudo p {
-      @apply text-[13px];
-    }
-
-    .card_consulta_botao {
-      @apply px-[14px] py-2 text-[13px] w-full justify-center min-h-[44px];
-    }
-  }
-
-  @media (max-width: 480px) {
-    .card_consulta {
-      @apply p-[14px] min-h-[160px];
-    }
-
-    .card_consulta_conteudo {
-      @apply gap-[6px];
-    }
-
-    .card_consulta_conteudo h2 {
-      @apply text-[15px] mb-2;
-    }
-
-    .card_consulta_conteudo p {
-      @apply text-[12px];
-    }
-
-    .card_consulta_botao {
-      @apply px-3 py-2 text-[12px] mt-3;
-    }
-  }
-
-  @media (max-width: 320px) {
-    .card_consulta {
-      @apply p-3;
-    }
-
-    .card_consulta_conteudo h2 {
-      @apply text-[14px];
-    }
-
-    .card_consulta_conteudo p {
-      @apply text-[11px];
-    }
-  }
-
-
-  /* CardIntegrantes Responsivo */
-  @media (max-width: 768px) {
-    .card_integrante {
-      @apply gap-[30px] p-5;
-    }
-
-    .card_integrante_imagem {
-      @apply w-[100px] h-[120px];
-    }
-
-    .card_integrante_conteudo {
-      @apply text-[16px] gap-[10px];
-    }
-
-    .card_integrante_redes img {
-      @apply w-7 h-7;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .card_integrante {
-      @apply flex-col text-center gap-5 px-[15px] py-5;
-    }
-
-    .card_integrante_imagem {
-      @apply w-20 h-20;
-    }
-
-    .card_integrante_conteudo {
-      @apply text-[14px] gap-2 items-center;
-    }
-
-    .card_integrante_redes {
-      @apply justify-center;
-    }
-
-    .card_integrante_redes img {
-      @apply w-6 h-6;
-    }
-  }
-
-  @media (max-width: 320px) {
-    .card_integrante {
-      @apply px-3 py-[15px] gap-[15px];
-    }
-
-    .card_integrante_imagem {
-      @apply w-[70px] h-[70px];
-    }
-
-    .card_integrante_conteudo {
-      @apply text-[13px];
-    }
-
-    .card_integrante_redes img {
-      @apply w-[22px] h-[25px];
-    }
-  }
-
-  /* Rodape Responsivo */
-
-  @media (max-width: 768px) {
-    .rodape {
-      @apply py-6;
-    }
-
-    .rodape_conteudo {
-      @apply px-6 gap-5;
-    }
-
-    .rodape_link {
-      @apply text-base px-5 py-2.5;
-    }
-
-    .rodape_copyright {
-      @apply text-[0.85rem];
-    }
-  }
-
-  @media (max-width: 480px) {
-    .rodape {
-      @apply py-5;
-    }
-
-    .rodape_conteudo {
-      @apply px-4 gap-4;
-    }
-
-    .rodape_link {
-      @apply text-[0.95rem] px-4 py-2;
-    }
-
-    .rodape_copyright {
-      @apply text-[0.8rem];
-    }
-  }
-
-
-  /* Agenda Responsivo */
-  @media (min-width: 768px) {
-    .container_pagina_agenda {
-      @apply p-8;
-    }
-
-    .agenda_header {
-      @apply text-left;
-    }
-
-    .agenda_header h1 {
-      @apply text-3xl;
-    }
-
-    .agenda_header p {
-      @apply text-base;
-    }
-
-    .agenda_filtro_busca {
-      @apply justify-start;
-    }
-
-    .container_card_consulta {
-      @apply gap-6 w-full;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    }
-
-    .container_agenda_vazia img {
-      @apply w-30;
-    }
-
-    .container_agenda_vazia h2 {
-      @apply text-xl;
-    }
-  }
-
-
-  @media (max-width: 375px) {
-    .container_pagina_agenda {
-      @apply p-4;
-    }
-
-    .agenda_header h1 {
-      @apply text-xl;
-    }
-
-    .agenda_filtro_busca {
-      @apply flex-col items-stretch;
-    }
-
-    .filtro_toggle_mobile {
-      @apply justify-center p-3;
-    }
-
-    .container_card_consulta {
-      grid-template-columns: 1fr;
-    }
-
-    .filtro_status_botoes {
-      @apply flex-col;
-    }
-
-    .filtro_status_botoes button {
-      @apply w-full;
-    }
-  }
-
-  /* Agendar Consulta Responsivo */
-  @media (max-width: 1024px) {
-    .agendar_consulta_conteudo {
-      @apply grid-cols-1 gap-8;
-    }
-
-    .agendar_consulta_form {
-      @apply p-8;
-    }
-  }
-
-  @media (max-width: 768px) {
-    #agendar_consulta_container {
-      @apply p-6;
-    }
-
-    .agendar-consulta-header h1 {
-      @apply text-3xl;
-    }
-
-    .agendar-consulta-subtitle {
-      @apply text-lg;
-    }
-
-    .agendar_consulta_form {
-      @apply p-6;
-    }
-
-    .step-header {
-      @apply flex-col items-start gap-2;
-    }
-
-    .step-header h3 {
-      @apply text-xl;
-    }
-
-    .agendar_consulta-progresso {
-      @apply flex-col gap-8 p-6;
-    }
-
-    .progresso_step::after {
-      @apply hidden;
-    }
-  }
-
-  @media (max-width: 480px) {
-    #agendar_consulta_container {
-      @apply p-4;
-    }
-
-    .agendar_consulta_header h1 {
-      @apply text-2xl;
-    }
-
-    .agendar_consulta_form {
-      @apply p-5;
-    }
-
-    .agendar_consulta_form_campo label {
-      @apply text-base;
-    }
-
-    .agendar_consulta_form_campo select,
-    .agendar_consulta_form_campo input {
-      @apply px-4 py-3 text-sm;
-    }
-
-    #agendar_consulta_botao {
-      @apply px-6 py-4 text-base;
-    }
-
-    .agendar_consulta_informacoes {
-      @apply p-6;
-    }
-
-    .info_header h2 {
-      @apply text-xl;
-    }
-  }
-
-  /* Cadastro Responsivo */
-  @media (max-width: 768px) {
-    #container_pagina_cadastro_form {
-      @apply p-7 mx-5;
-    }
-
-    .container_pagina_cadastro_titulo h1 {
-      @apply text-xl;
-    }
-
-    .container_pagina_cadastro_titulo p {
-      @apply text-sm;
-    }
-  }
-
-  @media (max-width: 480px) {
-    #container_pagina_cadastro {
-      @apply my-5;
-    }
-
-    #container_pagina_cadastro_form {
-      @apply p-6;
-    }
-
-    .container_pagina_cadastro_titulo h1 {
-      @apply text-lg;
-    }
-
-    .container_pagina_cadastro_titulo p {
-      @apply text-sm;
-    }
-
-    .container_pagina_cadastro_botao button {
-      @apply px-4 py-3 text-sm;
-    }
-  }
-
-  /* Contato Responsivo */
-  @media (max-width: 768px) {
-    .contato_conteudo {
-      @apply grid-cols-1;
-    }
-
-    #container_pagina_contato_secao_apresentacao {
-      @apply px-4 py-8;
-    }
-
-    .contato_header h1 {
-      @apply text-2xl;
-    }
-
-    .container_pagina_contato_secao_formulario {
-      @apply p-6;
-    }
-
-    #container_pagina_contato_secao_informacoes {
-      @apply p-6;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .contato_header h1 {
-      @apply text-xl;
-    }
-
-    .container_pagina_contato_secao_informacoes_itens {
-      @apply flex-col text-center items-center;
-    }
-
-    .contact-details {
-      @apply text-center;
-    }
-
-    .container_pagina_contato_secao_formulario_botao button {
-      @apply w-full justify-center;
-    }
-  }
-
-  /* Dados Conta Responsivo  */
-  @media (max-width: 768px) {
-    .container_pagina_dados_conta_conteudo_dados {
-      @apply px-10 py-[30px] m-5;
-    }
-
-    .container_pagina_dados_conta_titulo h1 {
-      @apply text-[28px];
-    }
-
-    .container_pagina_dados_conta_titulo p {
-      @apply text-[15px];
-    }
-
-    .container_pagina_dados_conta_botoes {
-      @apply gap-[40px];
-    }
-
-    .dados_item p {
-      @apply text-[15px];
-    }
-  }
-
-  @media (max-width: 480px) {
-    .container_pagina_dados_conta_conteudo_dados {
-      @apply px-[30px] py-[25px];
-    }
-
-    .container_pagina_dados_conta_titulo h1 {
-      @apply text-[24px];
-    }
-
-    .container_pagina_dados_conta_botoes {
-      @apply gap-[20px] flex-col items-center;
-    }
-
-    .container_pagina_dados_conta_botao_funcionalidades {
-      @apply w-full;
-    }
-
-    .container_pagina_dados_conta_botao_funcionalidades button {
-      @apply w-full max-w-[200px];
-    }
-
-    .dados_item {
-      @apply p-[14px];
-    }
-
-    .dados_item p {
-      @apply text-[14px];
-    }
-  }
-
-  /* Editar Dados Responsivo */
-  @media (max-width: 768px) {
-    #container_pagina_editar_dados_form {
-      @apply px-10 py-[30px] m-5;
-    }
-
-    .editar_form_fields input {
-      @apply w-[20rem];
-    }
-
-    .container_pagina_editar_dados_titulo h1 {
-      @apply text-[28px];
-    }
-
-    .container_pagina_editar_dados_titulo p {
-      @apply text-[15px];
-    }
-  }
-
-  @media (max-width: 480px) {
-    #container_pagina_editar_dados_form {
-      @apply px-[30px] py-[25px] max-w-[300px];
-    }
-
-    .editar_form_fields input {
-      @apply w-[15rem];
-    }
-
-    .container_pagina_editar_dados_titulo h1 {
-      @apply text-[20px];
-    }
-
-    .container_pagina_editar_dados_botao_atualizar,
-    .container_pagina_editar_dados_botao_cancelar {
-      @apply px-4 py-3 text-[15px];
-    }
-  }
-
-  @media (max-width: 480px) {
-    .not_found_container h1 {
-      @apply text-[3rem];
-    }
-
-    .not_found_container h2 {
-      @apply text-[1.5rem];
-    }
-
-    .not_found_container p {
-      @apply text-[1rem];
-    }
-
-    .not_found_container button {
-      @apply w-[150px];
-    }
+    @apply grid gap-8 mx-auto;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 }
+
+/* Login */
+
+@layer components {
+  #container_pagina_login {
+    @apply flex flex-col items-center justify-center my-10 mb-7 min-h-[80vh];
+  }
+
+  .login_logo {
+    @apply block mb-2.5;
+  }
+
+  .login_logo:hover {
+    @apply scale-[1.02];
+  }
+
+  .container_pagina_login_form_wrapper {
+    @apply flex justify-center w-full;
+  }
+
+  #container_pagina_login_form {
+    @apply flex flex-col items-center gap-6 p-[60px] bg-white rounded-[8px] max-w-[500px] w-full border border-[var(--cinza-claro)];
+  }
+
+  .container_pagina_login_titulo {
+    @apply flex flex-col items-center justify-center gap-3 mb-[35px] text-center;
+  }
+
+  .container_pagina_login_titulo h1 {
+    @apply text-[32px] font-bold m-0;
+  }
+
+  .container_pagina_login_titulo p {
+    @apply text-[var(--cinza-texto)] text-[16px] font-normal m-0;
+  }
+
+  .login_form_fields {
+    @apply flex flex-col gap-5 w-full;
+  }
+
+  .mensagem_login {
+    @apply px-4 py-3 rounded-[6px] text-center text-[14px] w-full;
+  }
+
+  .mensagem_login.green {
+    @apply bg-[#f0fdf4] text-[#166534] border border-[#bbf7d0];
+  }
+
+  .mensagem_login.red {
+    @apply bg-[#fef2f2] text-[#dc2626] border border-[#fecaca];
+  }
+
+  .container_pagina_login_botao {
+    @apply mt-3.5 w-full;
+  }
+
+  .container_pagina_login_botao button {
+    @apply w-full px-5 py-3.5 text-[16px] bg-[var(--azul-principal)] text-white rounded-[6px] cursor-pointer border-0;
+  }
+
+  .container_pagina_login_link {
+    @apply text-center text-[var(--cinza-texto)] text-[14px] m-0;
+  }
+
+  .container_pagina_login_link a {
+    @apply text-[var(--azul-principal)] font-semibold no-underline;
+  }
+
+  .container_pagina_login_link a:hover {
+    @apply underline;
+  }
+
+  .login_form_fields input {
+    @apply w-full flex flex-col gap-5;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Cabeçalho Responsivo */
+@media (max-width: 1024px) {
+  .cabecalho {
+    @apply px-[25px] py-[18px];
+  }
+
+  .cabecalho_lista_navegacao {
+    @apply gap-[30px];
+  }
+
+  .cabecalho_link_navegacao {
+    @apply text-[17px] px-[14px] py-[7px];
+  }
+
+  .cabecalho_icone_usuario {
+    @apply w-[60px];
+  }
+}
+
+@media (max-width: 768px) {
+  .cabecalho {
+    @apply px-[20px] py-[15px] flex-wrap justify-center gap-5;
+  }
+
+  .cabecalho_navegacao {
+    @apply static translate-x-0 order-3 w-full mt-[15px];
+  }
+
+  .cabecalho_lista_navegacao {
+    @apply justify-center flex-wrap gap-[20px];
+  }
+
+  .cabecalho_link_navegacao {
+    @apply text-[16px] px-[12px] py-[6px];
+  }
+
+  .cabecalho_imagem_logo {
+    @apply w-[130px];
+  }
+
+  .cabecalho_icone_usuario {
+    @apply w-[50px];
+  }
+}
+
+@media (max-width: 480px) {
+  .cabecalho {
+    @apply px-[15px] py-[12px] gap-[15px];
+  }
+
+  .cabecalho_lista_navegacao {
+    @apply gap-[15px];
+  }
+
+  .cabecalho_link_navegacao {
+    @apply text-[14px] px-[10px] py-[5px];
+  }
+
+  .cabecalho_imagem_logo {
+    @apply w-[110px];
+  }
+
+  .cabecalho_icone_usuario {
+    @apply w-[40px];
+  }
+}
+
+
+/* CardConsulta Responsivo */
+@media (max-width: 768px) {
+  .card_consulta {
+    @apply p-4 min-h-[180px];
+  }
+
+  .card_consulta_conteudo h2 {
+    @apply text-[16px];
+  }
+
+  .card_consulta_conteudo p {
+    @apply text-[13px];
+  }
+
+  .card_consulta_botao {
+    @apply px-[14px] py-2 text-[13px] w-full justify-center min-h-[44px];
+  }
+}
+
+@media (max-width: 480px) {
+  .card_consulta {
+    @apply p-[14px] min-h-[160px];
+  }
+
+  .card_consulta_conteudo {
+    @apply gap-[6px];
+  }
+
+  .card_consulta_conteudo h2 {
+    @apply text-[15px] mb-2;
+  }
+
+  .card_consulta_conteudo p {
+    @apply text-[12px];
+  }
+
+  .card_consulta_botao {
+    @apply px-3 py-2 text-[12px] mt-3;
+  }
+}
+
+@media (max-width: 320px) {
+  .card_consulta {
+    @apply p-3;
+  }
+
+  .card_consulta_conteudo h2 {
+    @apply text-[14px];
+  }
+
+  .card_consulta_conteudo p {
+    @apply text-[11px];
+  }
+}
+
+
+/* CardIntegrantes Responsivo */
+@media (max-width: 768px) {
+  .card_integrante {
+    @apply gap-[30px] p-5;
+  }
+
+  .card_integrante_imagem {
+    @apply w-[100px] h-[120px];
+  }
+
+  .card_integrante_conteudo {
+    @apply text-[16px] gap-[10px];
+  }
+
+  .card_integrante_redes img {
+    @apply w-7 h-7;
+  }
+}
+
+@media (max-width: 480px) {
+  .card_integrante {
+    @apply flex-col text-center gap-5 px-[15px] py-5;
+  }
+
+  .card_integrante_imagem {
+    @apply w-20 h-20;
+  }
+
+  .card_integrante_conteudo {
+    @apply text-[14px] gap-2 items-center;
+  }
+
+  .card_integrante_redes {
+    @apply justify-center;
+  }
+
+  .card_integrante_redes img {
+    @apply w-6 h-6;
+  }
+}
+
+@media (max-width: 320px) {
+  .card_integrante {
+    @apply px-3 py-[15px] gap-[15px];
+  }
+
+  .card_integrante_imagem {
+    @apply w-[70px] h-[70px];
+  }
+
+  .card_integrante_conteudo {
+    @apply text-[13px];
+  }
+
+  .card_integrante_redes img {
+    @apply w-[22px] h-[25px];
+  }
+}
+
+/* Rodape Responsivo */
+
+@media (max-width: 768px) {
+  .rodape {
+    @apply py-6;
+  }
+
+  .rodape_conteudo {
+    @apply px-6 gap-5;
+  }
+
+  .rodape_link {
+    @apply text-base px-5 py-2.5;
+  }
+
+  .rodape_copyright {
+    @apply text-[0.85rem];
+  }
+}
+
+@media (max-width: 480px) {
+  .rodape {
+    @apply py-5;
+  }
+
+  .rodape_conteudo {
+    @apply px-4 gap-4;
+  }
+
+  .rodape_link {
+    @apply text-[0.95rem] px-4 py-2;
+  }
+
+  .rodape_copyright {
+    @apply text-[0.8rem];
+  }
+}
+
+
+/* Agenda Responsivo */
+@media (min-width: 768px) {
+  .container_pagina_agenda {
+    @apply p-8;
+  }
+
+  .agenda_header {
+    @apply text-left;
+  }
+
+  .agenda_header h1 {
+    @apply text-3xl;
+  }
+
+  .agenda_header p {
+    @apply text-base;
+  }
+
+  .agenda_filtro_busca {
+    @apply justify-start;
+  }
+
+  .container_card_consulta {
+    @apply gap-6 w-full;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+
+  .container_agenda_vazia img {
+    @apply w-30;
+  }
+
+  .container_agenda_vazia h2 {
+    @apply text-xl;
+  }
+}
+
+
+@media (max-width: 375px) {
+  .container_pagina_agenda {
+    @apply p-4;
+  }
+
+  .agenda_header h1 {
+    @apply text-xl;
+  }
+
+  .agenda_filtro_busca {
+    @apply flex-col items-stretch;
+  }
+
+  .filtro_toggle_mobile {
+    @apply justify-center p-3;
+  }
+
+  .container_card_consulta {
+    grid-template-columns: 1fr;
+  }
+
+  .filtro_status_botoes {
+    @apply flex-col;
+  }
+
+  .filtro_status_botoes button {
+    @apply w-full;
+  }
+}
+
+/* Agendar Consulta Responsivo */
+@media (max-width: 1024px) {
+  .agendar_consulta_conteudo {
+    @apply grid-cols-1 gap-8;
+  }
+
+  .agendar_consulta_form {
+    @apply p-8;
+  }
+}
+
+@media (max-width: 768px) {
+  #agendar_consulta_container {
+    @apply p-6;
+  }
+
+  .agendar-consulta-header h1 {
+    @apply text-3xl;
+  }
+
+  .agendar-consulta-subtitle {
+    @apply text-lg;
+  }
+
+  .agendar_consulta_form {
+    @apply p-6;
+  }
+
+  .step-header {
+    @apply flex-col items-start gap-2;
+  }
+
+  .step-header h3 {
+    @apply text-xl;
+  }
+
+  .agendar_consulta-progresso {
+    @apply flex-col gap-8 p-6;
+  }
+
+  .progresso_step::after {
+    @apply hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  #agendar_consulta_container {
+    @apply p-4;
+  }
+
+  .agendar_consulta_header h1 {
+    @apply text-2xl;
+  }
+
+  .agendar_consulta_form {
+    @apply p-5;
+  }
+
+  .agendar_consulta_form_campo label {
+    @apply text-base;
+  }
+
+  .agendar_consulta_form_campo select,
+  .agendar_consulta_form_campo input {
+    @apply px-4 py-3 text-sm;
+  }
+
+  #agendar_consulta_botao {
+    @apply px-6 py-4 text-base;
+  }
+
+  .agendar_consulta_informacoes {
+    @apply p-6;
+  }
+
+  .info_header h2 {
+    @apply text-xl;
+  }
+}
+
+/* Cadastro Responsivo */
+@media (max-width: 768px) {
+  #container_pagina_cadastro_form {
+    @apply p-7 mx-5;
+  }
+
+  .container_pagina_cadastro_titulo h1 {
+    @apply text-xl;
+  }
+
+  .container_pagina_cadastro_titulo p {
+    @apply text-sm;
+  }
+}
+
+@media (max-width: 480px) {
+  #container_pagina_cadastro {
+    @apply my-5;
+  }
+
+  #container_pagina_cadastro_form {
+    @apply p-6;
+  }
+
+  .container_pagina_cadastro_titulo h1 {
+    @apply text-lg;
+  }
+
+  .container_pagina_cadastro_titulo p {
+    @apply text-sm;
+  }
+
+  .container_pagina_cadastro_botao button {
+    @apply px-4 py-3 text-sm;
+  }
+}
+
+/* Contato Responsivo */
+@media (max-width: 768px) {
+  .contato_conteudo {
+    @apply grid-cols-1;
+  }
+
+  #container_pagina_contato_secao_apresentacao {
+    @apply px-4 py-8;
+  }
+
+  .contato_header h1 {
+    @apply text-2xl;
+  }
+
+  .container_pagina_contato_secao_formulario {
+    @apply p-6;
+  }
+
+  #container_pagina_contato_secao_informacoes {
+    @apply p-6;
+  }
+}
+
+@media (max-width: 480px) {
+  .contato_header h1 {
+    @apply text-xl;
+  }
+
+  .container_pagina_contato_secao_informacoes_itens {
+    @apply flex-col text-center items-center;
+  }
+
+  .contact-details {
+    @apply text-center;
+  }
+
+  .container_pagina_contato_secao_formulario_botao button {
+    @apply w-full justify-center;
+  }
+}
+
+/* Dados Conta Responsivo  */
+@media (max-width: 768px) {
+  .container_pagina_dados_conta_conteudo_dados {
+    @apply px-10 py-[30px] m-5;
+  }
+
+  .container_pagina_dados_conta_titulo h1 {
+    @apply text-[28px];
+  }
+
+  .container_pagina_dados_conta_titulo p {
+    @apply text-[15px];
+  }
+
+  .container_pagina_dados_conta_botoes {
+    @apply gap-[40px];
+  }
+
+  .dados_item p {
+    @apply text-[15px];
+  }
+}
+
+@media (max-width: 480px) {
+  .container_pagina_dados_conta_conteudo_dados {
+    @apply px-[30px] py-[25px];
+  }
+
+  .container_pagina_dados_conta_titulo h1 {
+    @apply text-[24px];
+  }
+
+  .container_pagina_dados_conta_botoes {
+    @apply gap-[20px] flex-col items-center;
+  }
+
+  .container_pagina_dados_conta_botao_funcionalidades {
+    @apply w-full;
+  }
+
+  .container_pagina_dados_conta_botao_funcionalidades button {
+    @apply w-full max-w-[200px];
+  }
+
+  .dados_item {
+    @apply p-[14px];
+  }
+
+  .dados_item p {
+    @apply text-[14px];
+  }
+}
+
+/* Editar Dados Responsivo */
+@media (max-width: 768px) {
+  #container_pagina_editar_dados_form {
+    @apply px-10 py-[30px] m-5;
+  }
+
+  .editar_form_fields input {
+    @apply w-[20rem];
+  }
+
+  .container_pagina_editar_dados_titulo h1 {
+    @apply text-[28px];
+  }
+
+  .container_pagina_editar_dados_titulo p {
+    @apply text-[15px];
+  }
+}
+
+@media (max-width: 480px) {
+  #container_pagina_editar_dados_form {
+    @apply px-[30px] py-[25px] max-w-[300px];
+  }
+
+  .editar_form_fields input {
+    @apply w-[15rem];
+  }
+
+  .container_pagina_editar_dados_titulo h1 {
+    @apply text-[20px];
+  }
+
+  .container_pagina_editar_dados_botao_atualizar,
+  .container_pagina_editar_dados_botao_cancelar {
+    @apply px-4 py-3 text-[15px];
+  }
+}
+
+@media (max-width: 480px) {
+  .not_found_container h1 {
+    @apply text-[3rem];
+  }
+
+  .not_found_container h2 {
+    @apply text-[1.5rem];
+  }
+
+  .not_found_container p {
+    @apply text-[1rem];
+  }
+
+  .not_found_container button {
+    @apply w-[150px];
+  }
+}
+
 
 /* Integrantes Responsivo */
 @media (max-width: 1024px) {
@@ -1684,5 +1740,47 @@
 
   .integrantes_equipe_titulo p {
     @apply text-base;
+  }
+}
+
+/* Login Responsivo */
+
+@media (max-width: 768px) {
+  #container_pagina_login_form {
+    @apply p-[30px_40px] mx-5;
+  }
+
+  .container_pagina_login_titulo h1 {
+    @apply text-[28px];
+  }
+
+  .container_pagina_login_titulo p {
+    @apply text-[15px];
+  }
+}
+
+@media (max-width: 480px) {
+  #container_pagina_login {
+    @apply my-5;
+  }
+
+  #container_pagina_login_form {
+    @apply p-[20px_25px];
+  }
+
+  .container_pagina_login_titulo h1 {
+    @apply text-[24px];
+  }
+
+  .container_pagina_login_titulo p {
+    @apply text-[14px];
+  }
+
+  .container_pagina_login_botao button {
+    @apply px-4 py-3 text-[15px];
+  }
+
+  .container_pagina_login_link a {
+    @apply text-[1rem];
   }
 }
