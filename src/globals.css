@@ -958,6 +958,19 @@
   }
 }
 
+/* Faq */
+
+@layer components {
+  #conteudo_faq {
+    @apply px-10 py-15; 
+  }
+
+  #conteudo_faq h1 {
+    @apply text-4xl font-bold mb-4;
+  }
+}
+
+
 
 
 

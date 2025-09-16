@@ -1,5 +1,4 @@
 import FAQItem from '../../components/FaqItem';
-import './Faq.css'
 import { perguntasFAQ } from '../../data/perguntasFAQ';
 
 const Faq = () => {
