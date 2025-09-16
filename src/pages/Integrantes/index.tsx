@@ -1,4 +1,3 @@
-import './Integrantes.css'
 import CardIntegrantes from '../../components/CardIntegrantes';
 import ImgEquipe from '../../assets/images/imagem-equipe.png'
 import { integrantes } from '../../data/integrantes';
@@ -13,28 +12,28 @@ const Integrantes = () => {
 
     return (
         <main id="container_integrantes" className={loaded ? 'loaded' : ''}>
-            <section className="integrantes-hero">
-                <div className="hero-content">
+            <section className="integrantes_introducao">
+                <div className="integrantes_introducao_conteudo">
                     <h1>Conheça nossa equipe</h1>
-                    <p className="hero-subtitle">
+                    <p className="integrantes_introducao_subtitulo">
                         Conheça os desenvolvedores por trás da sua experiência de saúde digital.
                     </p>
                 </div>
-                <div className="hero-image">
+                <div>
                     <img
                         src={ImgEquipe}
                         alt="Ilustração de equipe de desenvolvimento trabalhando juntos"
-                        className="team-illustration"
+                        className="integrantes_ilustracao_equipe"
                     />
                 </div>
             </section>
 
-            <section className="integrantes-content">
-                <div className="section-header">
+            <section className="integrantes_equipe">
+                <div className="integrantes_equipe_titulo">
                     <h2>Nossos Desenvolvedores</h2>
                 </div>
 
-                <div className="cards">
+                <div className="integrantes_equipe_cards">
                     {integrantes.map((pessoa, index) => (
                         <CardIntegrantes key={index} {...pessoa} />
                     ))}
