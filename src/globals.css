@@ -179,7 +179,7 @@
   }
 
   .faq-item summary {
-    @apply cursor-pointer px-5 py-4 font-bold flex justify-between items-center bg-white font-[var(--fonte-principal)] text-base border-b border-gray-300 rounded-md;
+    @apply cursor-pointer px-5 py-4 font-bold flex justify-between items-center bg-white text-base border-b border-gray-300 rounded-md;
   }
 
   .faq-resposta {
@@ -1092,6 +1092,100 @@
   }
 }
 
+/* Página Inical */
+
+@layer components {
+  #container_pagina_inicial {
+    @apply font-[var(--fonte-principal)] mx-auto;
+  }
+
+  #container_pagina_inicial_secao_apresentacao {
+    @apply flex items-center bg-white font-[var(--fonte-principal)];
+  }
+
+  #container_pagina_inicial_secao_apresentacao.loaded {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .container_pagina_inicial_secao_apresentacao_texto {
+    @apply px-0 pl-10 pt-[68px] pb-[130px] w-[70%] box-border;
+  }
+
+  .container_pagina_inicial_secao_apresentacao_texto h1 {
+    @apply font-bold text-[40px] mb-2.5;
+  }
+
+  .container_pagina_inicial_secao_apresentacao_texto p {
+    @apply text-[32px] font-normal mb-2.5;
+  }
+
+  .container_pagina_inicial_secao_apresentacao_texto p span {
+    @apply text-[var(--azul-principal)] font-semibold;
+  }
+
+  .container_pagina_inicial_secao_apresentacao_imagem {
+    @apply flex justify-center items-center w-1/2;
+  }
+
+  .imagem_pagina_principal {
+    @apply w-[40vw];
+  }
+
+  #container_pagina_inicial_secao_funcionalidades {
+    @apply p-20 px-8 bg-[var(--cinza-claro)] opacity-0 translate-y-5 duration-800 ease-[ease];
+  }
+
+  #container_pagina_inicial_secao_funcionalidades.loaded {
+    @apply opacity-100 translate-y-0;
+  }
+
+  #container_pagina_inicial_secao_funcionalidades h2 {
+    @apply font-bold text-[2.5rem] text-center mb-12;
+  }
+
+  .container_pagina_inicial_secao_funcionalidades_cards {
+    @apply flex flex-wrap justify-center gap-8;
+  }
+
+  .funcionalidade_card {
+    @apply bg-white rounded-[12px] p-8 w-[300px] flex flex-col items-center text-center shadow-md transition-all duration-300 ease-in-out;
+  }
+
+  .funcionalidade_card:hover {
+    @apply -translate-y-1.5 ;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .icon_container {
+    @apply bg-[var(--azul-claro)] w-[100px] h-[100px] rounded-full flex items-center justify-center mb-6;
+  }
+
+  .icon_container img {
+    @apply w-[50px] h-auto;
+  }
+
+  .funcionalidade_card h3 {
+    @apply font-semibold text-[1.5rem] mb-4 text-[#1e293b];
+  }
+
+  .funcionalidade_card p {
+    @apply text-[var(--cinza-escuro)] mb-6 leading-6;
+  }
+
+  .card_link {
+    @apply bg-[var(--azul-principal)] text-white no-underline rounded-[8px] px-6 py-3 font-semibold flex items-center gap-2 mt-auto;
+  }
+
+  .card_link:hover {
+    @apply bg-[#1d4ed8] gap-4;
+  }
+
+  .card_botao {
+    @apply text-[0.8rem] transition-[var(--transicao)];
+  }
+
+}
+
 
 
 
@@ -1782,5 +1876,65 @@
 
   .container_pagina_login_link a {
     @apply text-[1rem];
+  }
+}
+
+/* Página inicial Responsivo */
+@media (max-width: 1024px) {
+  .container_pagina_inicial_secao_apresentacao_texto h1 {
+    @apply text-[2.5rem];
+  }
+
+  .container_pagina_inicial_secao_apresentacao_texto p {
+    @apply text-[1.5rem];
+  }
+}
+
+@media (max-width: 768px) {
+  #container_pagina_inicial_secao_apresentacao {
+    @apply flex-col bg-white p-8 text-center;
+  }
+
+  .container_pagina_inicial_secao_apresentacao_texto,
+  .container_pagina_inicial_secao_apresentacao_imagem {
+    @apply w-full;
+  }
+
+  .container_pagina_inicial_secao_apresentacao_texto {
+    @apply pt-4 pb-8 px-0;
+  }
+
+  .imagem_pagina_principal {
+    @apply max-w-full transform-none;
+  }
+
+  #container_pagina_inicial_secao_funcionalidades {
+    @apply p-12 px-4;
+  }
+
+  .funcionalidade_card {
+    @apply w-full max-w-[350px];
+  }
+}
+
+@media (max-width: 480px) {
+  .container_pagina_inicial_secao_apresentacao_texto h1 {
+    @apply text-[2rem];
+  }
+
+  .container_pagina_inicial_secao_apresentacao_texto p {
+    @apply text-[1.2rem];
+  }
+
+  #container_pagina_inicial_secao_funcionalidades h2 {
+    @apply text-[2rem];
+  }
+
+  .icon_container {
+    @apply w-[80px] h-[80px];
+  }
+
+  .icon_container img {
+    @apply w-[40px];
   }
 }

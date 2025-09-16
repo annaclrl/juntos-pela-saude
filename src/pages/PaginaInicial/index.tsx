@@ -1,4 +1,3 @@
-import './PaginaInicial.css'
 import ImagemPrincipal from '../../assets/images/imagem-pagina-principal.png'
 import IconCalendario from '../../assets/icons/icon-calendario.png'
 import IconDuvida from '../../assets/icons/icon-duvida.png'
@@ -22,7 +21,7 @@ const PaginaInicial = () => {
                 <p>Aqui, cuidar da saúde é <span>simples</span> e <span>digital</span>.</p>
             </div>
             <div className="container_pagina_inicial_secao_apresentacao_imagem">
-                <img className="imagem-pagina-principal" src={ImagemPrincipal} alt="Representação de uma consulta online" />
+                <img className="imagem_pagina_principal" src={ImagemPrincipal} alt="Representação de uma consulta online" />
             </div>
       </section>
       
@@ -30,39 +29,36 @@ const PaginaInicial = () => {
         <h2>Como funciona?</h2>
 
         <div className="container_pagina_inicial_secao_funcionalidades_cards">
-          <div className="funcionalidade-card">
-            <div className="icon-container">
+          <div className="funcionalidade_card">
+            <div className="icon_container">
               <img src={IconCalendario} alt="Ícone de calendário" aria-hidden="true" />
             </div>
-            <h3>Agendamento Simplificado</h3>
+            <h3>Agendamento</h3>
             <p>Marque sua consulta de forma rápida e sem complicações</p>
-            <Link to="/agendar-consulta" className="card-link">
-              Agende sua consulta
-              <span className="arrow">→</span>
+            <Link to="/agendar-consulta" className="card_link">
+              <span className="card_botao">Agende sua consulta →</span>
             </Link>
           </div>
 
-          <div className="funcionalidade-card">
-            <div className="icon-container">
+          <div className="funcionalidade_card">
+            <div className="icon_container">
               <img src={IconDuvida} alt="Ícone de interrogação representando dúvidas" aria-hidden="true" />
             </div>
             <h3>Tire suas Dúvidas</h3>
             <p>Encontre respostas para as perguntas mais frequentes</p>
-            <Link to="/faq" className="card-link">
-              Ver perguntas frequentes
-              <span className="arrow">→</span>
+            <Link to="/faq" className="card_link">
+              <span className="card_botao">Ver perguntas frequentes →</span>
             </Link>
           </div>
 
-          <div className="funcionalidade-card">
-            <div className="icon-container">
+          <div className="funcionalidade_card">
+            <div className="icon_container">
               <img src={IconChat} alt="Ícone de balão de conversa" aria-hidden="true" />
             </div>
             <h3>Fale Conosco</h3>
             <p>Sua opinião é importante para melhorarmos nossos serviços</p>
-            <Link to="/contato" className="card-link">
-              Deixe sua opinião
-              <span className="arrow">→</span>
+            <Link to="/contato" className="card_link">
+              <span className="card_botao"> Deixe sua opinião →</span>
             </Link>
           </div>
         </div>
