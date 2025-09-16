@@ -709,7 +709,6 @@
 .contato_header h1 {
   @apply text-4xl font-bold mb-4;
 }
-
 .contato_header p {
   @apply text-lg text-[var(--cinza-escuro)] mx-auto;
 }
@@ -719,9 +718,8 @@
 }
 
 .container_pagina_contato_secao_formulario {
-  @apply flex flex-col items-center gap-6 bg-white p-10 shadow-md rounded-md max-w-lg w-full border border-gray-300;
+  @apply bg-white flex flex-col items-center mb-10 gap-5 px-[70px] py-10 rounded-md shadow-sm max-w-[455px] w-full;
 }
-
 .container_pagina_contato_secao_formulario:hover {
   @apply shadow-2xl;
 }
@@ -729,11 +727,9 @@
 .container_pagina_contato_secao_formulario_botao {
   @apply w-[400px] flex justify-start;
 }
-
 .container_pagina_contato_secao_formulario_botao button {
   @apply px-5 py-2 text-base bg-[var(--azul-principal)] text-white rounded-md cursor-pointer font-[var(--fonte-principal)] transition duration-300 ease-in-out;
 }
-
 .container_pagina_contato_secao_formulario_botao button:hover {
   @apply scale-110 bg-[#1c5fc1];
 }
@@ -741,23 +737,18 @@
 #container_pagina_contato_secao_informacoes {
   @apply bg-slate-50 p-10 h-fit;
 }
-
 .container_pagina_contato_secao_informacoes_texto h2 {
   @apply text-2xl font-bold mb-4;
 }
-
 .container_pagina_contato_secao_informacoes_texto p {
   @apply text-[var(--cinza-escuro)] leading-relaxed mb-8;
 }
-
 .contato_informacoes {
   @apply flex flex-col gap-8;
 }
-
 .container_pagina_contato_secao_informacoes_itens {
   @apply list-none flex items-start gap-6 p-6 rounded-lg border border-gray-200 transition-all duration-300 ease-in-out;
 }
-
 .container_pagina_contato_secao_informacoes_itens:hover {
   @apply -translate-y-0.5 shadow-md;
 }
@@ -765,7 +756,6 @@
 .icon_wrapper {
   @apply bg-[var(--azul-claro)] w-[60px] h-[60px] rounded-full flex justify-center items-center shrink-0;
 }
-
 .icones {
   @apply w-[30px] h-auto;
 }
@@ -773,11 +763,9 @@
 .contato_detalhes h3 {
   @apply font-semibold mb-2;
 }
-
 .contato_detalhes p {
   @apply mb-1 font-medium;
 }
-
 .contato_nota {
   @apply text-sm text-[var(--cinza-escuro)];
 }
@@ -856,6 +844,85 @@
     @apply font-[var(--fonte-principal)] text-[18px] text-[color:var(--cinza-texto)];
   }
 }
+
+/* Editar Dados */
+
+@layer components {
+  #container_pagina_editar_dados {
+    @apply flex justify-center items-center flex-col my-[40px] mb-[90px] min-h-[60vh];
+  }
+
+  .container_pagina_editar_dados_form_wrapper {
+    @apply flex justify-center items-center w-full;
+  }
+
+  #container_pagina_editar_dados_form {
+    @apply bg-white flex flex-col items-center gap-[25px] px-[80px] py-[40px] rounded-lg max-w-[500px] w-full;
+  }
+
+  .container_pagina_editar_dados_titulo {
+    @apply flex justify-center items-center flex-col gap-[12px] mb-[20px] text-center;
+  }
+
+  .container_pagina_editar_dados_titulo h1 {
+    @apply text-[32px] font-bold m-0;
+  }
+
+  .container_pagina_editar_dados_titulo p {
+    @apply text-[16px] text-[color:var(--cinza-texto)] font-normal m-0;
+  }
+
+  .editar_form_fields {
+    @apply w-full flex flex-col items-center gap-[20px] self-center mt-[10px];
+  }
+
+  .mensagem_editar {
+    @apply px-4 py-3 rounded-md text-center  text-[14px] w-full mt-[10px];
+  }
+
+  .mensagem_editar.green {
+    @apply bg-[#f0fdf4] text-[#166534] border border-[#bbf7d0];
+  }
+
+  .mensagem_editar.red {
+    @apply bg-[#fef2f2] text-[#dc2626] border border-[#fecaca];
+  }
+
+  .container_pagina_editar_dados_botoes {
+    @apply flex justify-center gap-[30px] mt-[20px] flex-wrap;
+  }
+
+  .container_pagina_editar_dados_botao_atualizar,
+  .container_pagina_editar_dados_botao_cancelar {
+    @apply w-full px-5 py-[14px] text-[16px] text-white rounded-md cursor-pointer transition-all duration-300 ease-in-out;
+  }
+
+  .container_pagina_editar_dados_botao_atualizar {
+    @apply bg-[color:var(--azul-principal)];
+  }
+
+  .container_pagina_editar_dados_botao_cancelar {
+    @apply bg-[color:var(--cinza-texto)];
+  }
+
+  .mensagem_securanca {
+    @apply mt-[20px] p-3 bg-[#fffbeb] rounded-md border border-[#fcd34d] text-center;
+  }
+
+  .mensagem_securanca p {
+    @apply m-0 text-[#92400e] text-[12px] font-medium;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1384,3 +1451,41 @@
     @apply text-[14px];
   }
 }
+
+ /* Editar Dados Responsivo */
+  @media (max-width: 768px) {
+    #container_pagina_editar_dados_form {
+      @apply px-10 py-[30px] m-5;
+    }
+
+    .editar_form_fields input {
+      @apply w-[20rem];
+    }
+
+    .container_pagina_editar_dados_titulo h1 {
+      @apply text-[28px];
+    }
+
+    .container_pagina_editar_dados_titulo p {
+      @apply text-[15px];
+    }
+  }
+
+  @media (max-width: 480px) {
+    #container_pagina_editar_dados_form {
+      @apply px-[30px] py-[25px] max-w-[300px];
+    }
+
+    .editar_form_fields input {
+      @apply w-[15rem];
+    }
+
+    .container_pagina_editar_dados_titulo h1 {
+      @apply text-[20px];
+    }
+
+    .container_pagina_editar_dados_botao_atualizar,
+    .container_pagina_editar_dados_botao_cancelar {
+      @apply px-4 py-3 text-[15px];
+    }
+  }

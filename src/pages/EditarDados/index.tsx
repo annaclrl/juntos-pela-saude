@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CampoFormulario from "../../components/CampoFormulario";
-import "./EditarDados.css";
 import type { Usuario } from "../../types/usuario";
 
 const EditarDados = () => {
@@ -100,7 +99,7 @@ const EditarDados = () => {
             <p>Atualize seus dados pessoais abaixo</p>
           </div>
 
-          <div className="form-fields">
+          <div className="editar_form_fields">
               <CampoFormulario
                 id="nome"
                 name="nome"
@@ -147,7 +146,7 @@ const EditarDados = () => {
           </div>
 
           {mensagem && (
-            <div className={`mensagem-editar ${corMensagem}`}>{mensagem}</div>
+            <div className={`mensagem_editar ${corMensagem}`}>{mensagem}</div>
           )}
 
           <div className="container_pagina_editar_dados_botoes">
@@ -169,7 +168,7 @@ const EditarDados = () => {
             </button>
           </div>
 
-          <div className="security-notice">
+          <div className="mensagem_securanca">
             <p>Seus dados são protegidos conforme as normas de segurança</p>
           </div>
         </form>
