@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './SalaEspera.css';
 import ImgEspera from '../../assets/images/img-espera.png';
 
 interface WaitingRoomProps {

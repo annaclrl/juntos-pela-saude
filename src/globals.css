@@ -1231,6 +1231,87 @@
   }
 }
 
+/* Sala de Espera */
+
+@layer components {
+  .container_pagina_sala_espera {
+    @apply min-h-screen flex items-center justify-center p-5;
+  }
+
+  .container_pagina_sala_espera_conteudo {
+    @apply bg-white rounded-[20px] p-10 max-w-[500px] w-full text-center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .container_pagina_sala_espera_conteudo_img {
+    @apply block w-full max-w-[300px] h-auto mx-auto mb-7.5 rounded-[15px];
+  }
+
+  .container_pagina_sala_espera_status {
+    @apply flex justify-between items-center mb-5;
+  }
+
+  .container_pagina_sala_espera_status_titulo {
+    @apply text-[#2d3748] text-[2rem] m-0 font-semibold;
+  }
+
+  .container_pagina_sala_espera_status_tempo {
+    @apply text-[#718096] text-[1.1rem] font-medium;
+  }
+
+  .container_pagina_sala_espera_status_indicator {
+    @apply flex items-center justify-center mb-3.5 text-[#48bb78] font-semibold;
+  }
+
+  .container_pagina_sala_espera_status_fila {
+    @apply w-[12px] h-[12px] bg-[#48bb78] rounded-full mr-2.5 animate-pulse;
+  }
+
+  .container_pagina_sala_espera_texto {
+    @apply text-[#718096] text-[1rem] leading-6 mb-3.5;
+  }
+
+  .container_pagina_sala_espera_texto_tempo {
+    @apply bg-[#ebf8ff] text-[#3182ce] px-3.5 py-2 rounded-lg text-[0.9rem];
+  }
+
+  .container_pagina_sala_espera_texto_aguardar {
+    @apply mt-1.25 bg-[#f7fafc] p-5 rounded-xl mb-5 text-left;
+  }
+
+  .container_pagina_sala_espera_texto_aguardar h3 {
+    @apply text-[#2d3748] m-0 mb-3.5 text-[1.1rem];
+  }
+
+  .container_pagina_sala_espera_texto_aguardar ul {
+    @apply list-none p-0 m-0;
+  }
+
+  .container_pagina_sala_espera_texto_aguardar li {
+    @apply text-[#718096] mb-2.5 text-[0.9rem] flex items-center;
+  }
+
+  .container_pagina_sala_espera_texto_aguardar li:before {
+    content: "✓";
+    @apply text-[#48bb78] font-bold mr-2.5;
+  }
+
+  .container_pagina_sala_espera_contato {
+    @apply mb-5;
+  }
+
+  .container_pagina_sala_espera_contato p {
+    @apply text-[#718096] text-[0.9rem];
+  }
+
+  .container_pagina_sala_espera_contato_botao {
+    @apply bg-[var(--azul-principal)] text-white border-none py-3.75 px-7 text-[1.1rem] rounded-[10px] cursor-pointer transition-all duration-300 font-semibold w-full;
+  }
+
+  .container_pagina_sala_espera_contato_botao:hover {
+    @apply -translate-y-[2px];
+  }
+}
 
 
 
@@ -2030,3 +2111,32 @@
   }
 }
 
+/* Sala de Espera Responsivo*/
+@media (max-width: 768px) {
+  .container_pagina_sala_espera_conteudo {
+    @apply p-7.5 mx-2.5;
+  }
+
+  .container_pagina_sala_espera_status_titulo {
+    @apply text-[1.5rem];
+  }
+
+  .container_pagina_sala_espera_texto {
+    @apply flex-col gap-2.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .container_pagina_sala_espera_status_indicator {
+    @apply text-[0.8rem];
+  }
+
+  .container_pagina_sala_espera_texto {
+    @apply text-[0.8rem];
+  }
+
+  .container_pagina_sala_espera_contato p {
+    @apply text-[0.85rem];
+  }
+
+}
