@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './DadosConta.css'
 import type { Usuario } from "../../types/usuario";
 
 const DadosConta = () => {
@@ -71,22 +70,22 @@ const DadosConta = () => {
           </div>
 
           <div className="container_pagina_dados_conta_dados_usuario">
-            <div className="dados-item">
+            <div className="dados_item">
               <p><strong>Nome Completo:</strong> {usuario.nome}</p>
             </div>
-            <div className="dados-item">
+            <div className="dados_item">
               <p><strong>Email:</strong> {usuario.email}</p>
             </div>
-            <div className="dados-item">
+            <div className="dados_item">
               <p><strong>CPF:</strong> {usuario.cpf}</p>
             </div>
-            <div className="dados-item">
+            <div className="dados_item">
               <p><strong>Senha:</strong> {"*".repeat(usuario.senha.length)}</p>
             </div>
           </div>
 
           {feedback && (
-            <div className={`feedback-message ${feedback.cor}`}>
+            <div className={`feedback_message ${feedback.cor}`}>
               {feedback.texto}
             </div>
           )}
