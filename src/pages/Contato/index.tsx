@@ -50,40 +50,42 @@ const Contato = () => {
             <div className="contato_conteudo">
                     <div className='contato_form_wrapper'>
                         <form className='container_pagina_contato_secao_formulario' onSubmit={handleEnviar}>
-                            <CampoFormulario
-                                id="nome"
-                                label="Nome completo"
-                                name="nome"
-                                placeholder="Digite seu nome completo"
-                                value={nome}
-                                onChange={(e) => setNome(e.target.value)}
-                            />
-                            <CampoFormulario
-                                label="Email"
-                                id="email"
-                                name="email"
-                                type="email"
-                                placeholder="seu.email@exemplo.com"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            <CampoFormulario
-                                label="CPF"
-                                id="cpf"
-                                name="cpf"
-                                placeholder="000.000.000-00"
-                                value={cpf}
-                                onChange={(e) => setCpf(e.target.value)}
-                            />
-                            <CampoFormulario
-                                label="Mensagem"
-                                id="mensagem"
-                                name="mensagem"
-                                placeholder="Descreva sua dúvida ou solicitação..."
-                                multiline={true}
-                                value={mensagemUsuario}
-                                onChange={(e) => setMensagemUsuario(e.target.value)}
-                            />
+                            <div className='contato_form_fields'>
+                                <CampoFormulario
+                                    id="nome"
+                                    label="Nome completo"
+                                    name="nome"
+                                    placeholder="Digite seu nome completo"
+                                    value={nome}
+                                    onChange={(e) => setNome(e.target.value)}
+                                />
+                                <CampoFormulario
+                                    label="Email"
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    placeholder="seu.email@exemplo.com"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                                <CampoFormulario
+                                    label="CPF"
+                                    id="cpf"
+                                    name="cpf"
+                                    placeholder="000.000.000-00"
+                                    value={cpf}
+                                    onChange={(e) => setCpf(e.target.value)}
+                                />
+                                <CampoFormulario
+                                    label="Mensagem"
+                                    id="mensagem"
+                                    name="mensagem"
+                                    placeholder="Descreva sua dúvida ou solicitação..."
+                                    multiline={true}
+                                    value={mensagemUsuario}
+                                    onChange={(e) => setMensagemUsuario(e.target.value)}
+                                />
+                            </div>
                             {feedback && (
                                 <div style={{ color: feedback.cor, marginTop: "10px" }}>
                                     {feedback.texto}

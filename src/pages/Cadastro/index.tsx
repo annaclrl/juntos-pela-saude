@@ -111,7 +111,7 @@ const Cadastro = () => {
             <p>Cadastre-se para acessar o painel de gestão</p>
           </div>
 
-          <div className="form-fields">
+          <div className="cadastro_form_fields">
             <CampoFormulario
               id="nome"
               name="nome"
