@@ -1,19 +1,11 @@
 import { useState, useEffect, type FormEvent } from "react";
-import CardConsulta, { type StatusConsulta } from "../../components/CardConsulta";
+import CardConsulta from "../../components/CardConsulta";
+import type { Consulta , StatusConsulta } from "../../types/consulta";
 import Modal from "../../components/ModalAcesso";
 import IconBusca from '../../assets/icons/icon-busca.png';
 import IconFiltro from '../../assets/icons/icon-seta.png';
 import IconAgendaVazia from '../../assets/icons/icon-calendario.png';
 import { Link } from "react-router-dom";
-
-type Consulta = {
-  id: number;
-  especialidade: string;
-  medico: string;
-  dataHora: string;
-  status: StatusConsulta;
-  usuarioEmail: string;
-};
 
 const Agenda = () => {
 

@@ -1,15 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "../../components/ModalAcesso";
+import type { Consulta } from "../../types/consulta";
 
-interface Consulta {
-  id: number;
-  especialidade: string;
-  medico: string;
-  dataHora: string;
-  status: string;
-  usuarioEmail: string;
-}
 
 const AgendarConsulta = () => {
   const [especialidade, setEspecialidade] = useState("");

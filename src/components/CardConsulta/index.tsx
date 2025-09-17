@@ -1,14 +1,5 @@
 import { Link } from "react-router-dom";
-
-export type StatusConsulta = "Confirmada" | "Realizada" | "Cancelada" | "Pendente";
-
-export type CardConsultaProps = {
-  especialidade: string;
-  medico: string;
-  dataHora: string;
-  status: StatusConsulta;
-  onAtualizarStatus: (id: number, novoStatus: StatusConsulta) => void;
-};
+import type { CardConsultaProps } from "../../types/consulta";
 
 const CardConsulta = ({ especialidade, medico, dataHora, status }: CardConsultaProps) => {
   const data = new Date(dataHora);
