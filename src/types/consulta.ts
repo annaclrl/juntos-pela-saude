@@ -10,10 +10,12 @@ export interface Consulta {
 }
 
 export interface CardConsultaProps {
+  id: number;
   especialidade: string;
   medico: string;
   dataHora: string;
   status: StatusConsulta;
   onAtualizarStatus?: (id: number, novoStatus: StatusConsulta) => void;
+  onEntrar?: (id: number) => void;
 }
 

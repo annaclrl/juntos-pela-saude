@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import type { CardConsultaProps } from "../../types/consulta";
 
-const CardConsulta = ({ especialidade, medico, dataHora, status }: CardConsultaProps) => {
+const CardConsulta = ({ id, especialidade, medico, dataHora, status }: CardConsultaProps) => {
+  
   const data = new Date(dataHora);
-
   const dataHoraFormatada = `${data.toLocaleDateString("pt-BR")} - ${data.toLocaleTimeString("pt-BR", { hour: '2-digit', minute: '2-digit' })}`;
 
   return (
@@ -15,7 +15,9 @@ const CardConsulta = ({ especialidade, medico, dataHora, status }: CardConsultaP
         <p><strong>Data e Hora:</strong> {dataHoraFormatada}</p>
         <p><strong>Status:</strong> {status}</p>
 
-        <Link to={'/permissao'} className="card_consulta_botao"> Entrar na consulta</Link>   
+        <Link to={`/permissao/${id}`} className="card_consulta_botao">
+          Entrar na consulta
+        </Link>   
       </div>
     </div>
   );

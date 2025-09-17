@@ -1,7 +1,10 @@
 import ImgPermissoes from '../../assets/images/microfone-camera.jpg';
-import { Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Permissao = () => {
+
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
 
   return (
     <main>
@@ -39,7 +42,7 @@ const Permissao = () => {
               </div>
             </div>
           </div>
-          <Link to='/sala-espera' className="container_pagina_permissao_conteudo_botao">Ir para sala de espera</Link>
+          <button className="container_pagina_permissao_conteudo_botao" onClick={() => navigate(`/sala-espera/${id}`)} >Ir para sala de espera</button>
           <p className="container_pagina_permissao_conteudo_texto">
             Sua privacidade é importante. As permissões são usadas apenas para a consulta e não são gravadas.
           </p>

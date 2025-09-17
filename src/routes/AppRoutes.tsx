@@ -61,11 +61,11 @@ export const routes = createBrowserRouter([
         element: <AgendarConsulta />
       },
       {
-        path: '/permissao',
+        path: '/permissao/:id',
         element: <Permissao/>
       },
       {
-        path: '/sala-espera',
+        path: '/sala-espera/:id',
         element: <SalaEspera/>
       }
     ]

@@ -5,9 +5,10 @@ import Modal from "../../components/ModalAcesso";
 import IconBusca from '../../assets/icons/icon-busca.png';
 import IconFiltro from '../../assets/icons/icon-seta.png';
 import IconAgendaVazia from '../../assets/icons/icon-calendario.png';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Agenda = () => {
+  const navigate = useNavigate();
 
   const [consultas, setConsultas] = useState<Consulta[]>([]);
   const [filtroStatus, setFiltroStatus] = useState<StatusConsulta | "">("");
@@ -16,6 +17,8 @@ const Agenda = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [filtroAberto, setFiltroAberto] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  console.log(consultas);
 
   const atualizarStatusConsulta = (id: number, novoStatus: StatusConsulta) => {
     setConsultas(prevConsultas => {
@@ -39,12 +42,9 @@ const Agenda = () => {
   const emailUsuario = usuarioLogado?.email ?? "";
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener('resize', handleResize);
-    
+
     if (!emailUsuario) {
       setShowModal(true);
       setIsLoading(false);
@@ -52,8 +52,17 @@ const Agenda = () => {
       setTimeout(() => {
         const stored = localStorage.getItem("consultas");
         if (stored) {
-          const todasConsultas: Consulta[] = JSON.parse(stored);
-          setConsultas(todasConsultas.filter(c => c.usuarioEmail === emailUsuario));
+          let todasConsultas: Consulta[] = JSON.parse(stored);
+
+          todasConsultas = todasConsultas.map((c, index) => ({
+            ...c,
+            id: c.id ?? index + 1,
+          }));
+
+          const consultasUsuario = todasConsultas.filter(c => c.usuarioEmail === emailUsuario);
+          setConsultas(consultasUsuario);
+          
+          localStorage.setItem("consultas", JSON.stringify(todasConsultas));
         }
         setIsLoading(false);
       }, 800);
@@ -184,11 +193,13 @@ const Agenda = () => {
               {consultasFiltradas.map((consulta) => (
                 <CardConsulta
                   key={consulta.id}
+                  id={consulta.id}
                   especialidade={consulta.especialidade}
                   medico={consulta.medico}
                   dataHora={consulta.dataHora}
                   status={consulta.status}
                   onAtualizarStatus={atualizarStatusConsulta}
+                  onEntrar={(id) => navigate(`/permissao/${id}`)}
                 />
               ))}
             </div>
