@@ -16,7 +16,7 @@ const CardConsulta = ({ id, especialidade, medico, dataHora, status, onEntrar, o
   return (
     <div className="card_consulta">
       <div className="card_consulta_conteudo">
-        <h2>Consulta</h2>
+        <h2><strong>Consulta</strong></h2>
         <p><strong>Especialidade:</strong> {especialidade}</p>
         <p><strong>Médico:</strong> {medico}</p>
         <p><strong>Data e Hora:</strong> {dataHoraFormatada}</p>
