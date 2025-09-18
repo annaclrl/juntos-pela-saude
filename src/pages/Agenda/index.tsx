@@ -1,10 +1,11 @@
 import { useState, useEffect, type FormEvent } from "react";
 import CardConsulta from "../../components/CardConsulta";
-import type { Consulta , StatusConsulta } from "../../types/consulta";
+import type { Consulta, StatusConsulta } from "../../types/consulta";
 import Modal from "../../components/ModalAcesso";
 import IconBusca from '../../assets/icons/icon-busca.png';
 import IconFiltro from '../../assets/icons/icon-seta.png';
 import IconAgendaVazia from '../../assets/icons/icon-calendario.png';
+import IconAdd from '../../assets/icons/icon-mais.png';
 import { Link, useNavigate } from "react-router-dom";
 
 const Agenda = () => {
@@ -61,7 +62,7 @@ const Agenda = () => {
 
           const consultasUsuario = todasConsultas.filter(c => c.usuarioEmail === emailUsuario);
           setConsultas(consultasUsuario);
-          
+
           localStorage.setItem("consultas", JSON.stringify(todasConsultas));
         }
         setIsLoading(false);
@@ -73,13 +74,13 @@ const Agenda = () => {
 
   const consultasFiltradas = consultas.filter((consulta) => {
     const statusOk = filtroStatus ? consulta.status === filtroStatus : true;
-    const buscaOk = consulta.medico.toLowerCase().includes(busca.toLowerCase()) || 
-                   consulta.especialidade.toLowerCase().includes(busca.toLowerCase());
+    const buscaOk = consulta.medico.toLowerCase().includes(busca.toLowerCase()) ||
+      consulta.especialidade.toLowerCase().includes(busca.toLowerCase());
     return statusOk && buscaOk;
   });
 
   const handleBusca = (e: FormEvent<HTMLFormElement>) => e.preventDefault();
-  
+
   const limparFiltros = () => {
     setFiltroStatus("");
     setBusca("");
@@ -116,18 +117,29 @@ const Agenda = () => {
             )}
           </div>
         )}
-        
-        <form className="agenda_busca" onSubmit={handleBusca}>
-          <input
-            type="text"
-            placeholder={isMobile ? "Buscar..." : "Buscar por médico ou especialidade"}
-            value={busca}
-            onChange={(e) => setBusca(e.target.value)}
-          />
-          <button type="submit" aria-label="Buscar">
-            <img src={IconBusca} alt="Ícone de busca" />
-          </button>
-        </form>
+
+        <div className="flex flex-1 gap-2">
+          <form className="agenda_busca flex-1" onSubmit={handleBusca}>
+            <input
+              type="text"
+              placeholder={isMobile ? "Buscar..." : "Buscar por médico ou especialidade"}
+              value={busca}
+              onChange={(e) => setBusca(e.target.value)}
+            />
+            <button type="submit" aria-label="Buscar">
+              <img src={IconBusca} alt="Ícone de busca" />
+            </button>
+          </form>
+
+          <Link
+            to="/agendar-consulta"
+            className="btn_adicionar_consulta"
+            title="Agendar nova consulta"
+          >
+            <img src={IconAdd} alt="Agendar consulta" />
+            Agendar
+          </Link>
+        </div>
 
         {isMobile && (
           <div className="filtro_toggle_mobile" onClick={() => setFiltroAberto(!filtroAberto)}>
@@ -144,19 +156,19 @@ const Agenda = () => {
           <div className="filtro_status">
             <h3>Status da consulta</h3>
             <div className="filtro_status_botoes">
-              <button 
+              <button
                 className={filtroStatus === "" ? "ativo" : ""}
                 onClick={() => setFiltroStatus("")}
               >
                 Todas ({consultas.length})
               </button>
-              <button 
+              <button
                 className={filtroStatus === "Confirmada" ? "ativo" : ""}
                 onClick={() => setFiltroStatus("Confirmada")}
               >
                 Confirmadas ({getStatusCount("Confirmada")})
               </button>
-              <button 
+              <button
                 className={filtroStatus === "Realizada" ? "ativo" : ""}
                 onClick={() => setFiltroStatus("Realizada")}
               >
@@ -164,7 +176,7 @@ const Agenda = () => {
               </button>
             </div>
           </div>
-          
+
           {(filtroStatus || busca) && (
             <button className="limpar_filtros" onClick={limparFiltros}>
               Limpar filtros
@@ -188,7 +200,7 @@ const Agenda = () => {
                 </button>
               )}
             </div>
-            
+
             <div className="container_card_consulta">
               {consultasFiltradas.map((consulta) => (
                 <CardConsulta
@@ -209,8 +221,8 @@ const Agenda = () => {
             <img src={IconAgendaVazia} alt="Agenda vazia" />
             <h2>Nenhuma consulta encontrada</h2>
             <p>
-              {consultas.length === 0 
-                ? "Você ainda não possui consultas agendadas." 
+              {consultas.length === 0
+                ? "Você ainda não possui consultas agendadas."
                 : "Nenhuma consulta corresponde aos filtros aplicados."
               }
             </p>

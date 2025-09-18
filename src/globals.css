@@ -14,7 +14,6 @@
 }
 
 @layer base {
-
   html,
   body {
     @apply h-full;
@@ -37,10 +36,6 @@ header {
 
 .cabecalho_logo {
   @apply flex items-center transition-transform duration-300;
-}
-
-.cabecalho_logo:hover {
-  @apply scale-105;
 }
 
 .cabecalho_imagem_logo {
@@ -76,7 +71,7 @@ header {
 }
 
 .cabecalho_botao_usuario:hover {
-  @apply bg-white/10 scale-110;
+  @apply bg-white/5 scale-100;
 }
 
 .cabecalho_icone_usuario {
@@ -429,13 +424,11 @@ hr {
 }
 
 .rodape_link {
-  @apply no-underline text-white text-lg font-medium px-6 py-3 rounded-lg inline-flex items-center gap-2 transition-all duration-300;
+  @apply  text-white no-underline text-[18px] font-medium inline-block px-4 py-2 rounded-md transition-all duration-300 relative;
 }
 
 .rodape_link:hover {
-  @apply bg-white/20 -translate-y-0.5;
-  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-
+  @apply bg-white/10 scale-110;
 }
 
 .rodape_link:focus {
@@ -550,6 +543,13 @@ hr {
   @apply w-4.5 h-4.5 object-contain;
 }
 
+.btn_adicionar_consulta {
+  @apply flex items-center gap-2 px-4 py-3 bg-[var(--azul-principal)] text-white border border-[var(--azul-principal)] rounded-lg cursor-pointer font-medium shadow-sm transition-colors duration-300;
+}
+
+.btn_adicionar_consulta img {
+  @apply w-4 h-4 filter brightness-0 invert;
+}
 .filtro_opcoes {
   @apply bg-white p-6 rounded-lg mb-8 shadow-sm border border-gray-200;
 }
@@ -636,10 +636,17 @@ hr {
     @apply text-base;
   }
 
-  .agenda_filtro_busca {
-    @apply justify-start;
+ .agenda_filtro_busca {
+    @apply gap-2;
   }
 
+  .btn_adicionar_consulta {
+    @apply px-3 py-2;
+  }
+
+  .btn_adicionar_consulta span {
+    @apply hidden;
+  }
   .container_card_consulta {
     @apply gap-6 w-full;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
