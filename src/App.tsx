@@ -2,6 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import './globals.css';
 import Cabecalho from "./components/Cabecalho";
 import Rodape from './components/Rodape';
+import Chatbot from './components/Chatbot';
 
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
   
   return(
     <>
+      <Chatbot/>
       {showHeaderFooter && <Cabecalho />}
       <Outlet/>
       {showHeaderFooter && <Rodape/>}
